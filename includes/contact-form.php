@@ -8,6 +8,33 @@ add_action('init', 'create_submission_page');
 
 add_action('add_meta_boxes', 'create_meta_box');
 
+add_filter('manage_submission_posts_columns', 'custom_submission_columns');
+
+add_action('manage_submission_posts_custom_column', 'fill_submission_columns', 10, 2);
+
+
+function fill_submission_columns($column, $post_id)
+{
+    switch($column)
+    {
+        case 'name':
+            echo get_post_meta($post_id, 'name', true);
+        break;
+    }
+}
+
+function custom_submission_columns($columns)
+{
+    $columns = array(
+        'cb' => $columns['cb'],
+        'name' => __('Name', 'contact-plugin'),
+        'email' => __('Email', 'contact-plugin'),
+        'phone' => __('Phone', 'contact-plugin'),
+        'address' => __('Address', 'contact-plugin'),
+        'message' => __('Message', 'contact-plugin')
+    );
+    return $columns;
+}
 function show_contact_form()
 {
     include MY_PLUGIN_PATH . '/includes/templates/contact-form.php';
@@ -76,7 +103,12 @@ function create_submission_page()
             'name' => 'Submissions',
             'singular_name' => 'Submission'
         ],
-        'supports' => ['title', 'editor', 'custom-fields']
+        'supports' => ['title', 'editor', 'custom-fields'],
+        'capability_type' => 'post',
+        'capabilities' => array(
+            'create_posts' => false
+        ),
+        'map_meta_cap' => true
     ];
     // 'capabilities'=> ['create_posts' => 'do_not_allow']
 
@@ -95,10 +127,20 @@ function display_submission()
     unset($post_metas['_edit_lock']);
 
 
-    foreach($post_metas as $key => $value){
-        echo '<strong>' . ucfirst($key) . '</strong>' . ':' . $value[0] . '<br><br>';
-    }
+    // foreach($post_metas as $key => $value){
+    //     echo '<strong>' . ucfirst($key) . '</strong>' . ':' . $value[0] . '<br><br>';
+    // }
 
 
     // echo 'Name :' . get_post_meta( get_the_ID(), 'name', true);
+
+    echo '<ul>';
+        echo '<li><strong>Name</strong>:<br>' . get_post_meta( get_the_ID(), 'name', true) . '</li>';
+        echo '<li><strong>Email</strong>:<br>' . get_post_meta( get_the_ID(), 'email', true) . '</li>';
+        echo '<li><strong>Phone</strong>:<br>' . get_post_meta( get_the_ID(), 'phone', true) . '</li>';
+        echo '<li><strong>Address</strong>:<br>' . get_post_meta( get_the_ID(), 'address', true) . '</li>';
+        echo '<li><strong>Message</strong>:<br>' . get_post_meta( get_the_ID(), 'message', true) . '</li>';
+
+    echo '</ul>';
+
 }
