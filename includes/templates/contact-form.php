@@ -1,4 +1,7 @@
+<div id="form_success" style="background: green; color: white;"></div>
+<div id="form_errorr" style="background: red; color: white;"></div>
 <form id="contact-form" style="display: flex; flex-direction: column; padding: 30px">
+
 
 
 <?php wp_nonce_field('wp_rest'); ?>
@@ -6,7 +9,7 @@
 <input type="text" name="name">
 <label for="email">email</label>
 
-<input type="email" email="email">
+<input type="email" name="email">
 <label for="phone">phone</label>
 
 <input type="tel" name="phone">

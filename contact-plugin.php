@@ -43,7 +43,16 @@ class ContactPlugin {
             $.ajax({
                 type: "POST",
                 url: "<?php echo get_rest_url(null, 'v1/contact-form/submit'); ?>",
-                data: form.serialize()
+                data: form.serialize(),
+                success: function()
+                {
+                    form.hide();
+                    $("#form_success").html("Your message was sent!").fadeIn();
+                },
+                error: function()
+                {
+                    $("#form_error").html("There was an error submitting your form!").fadeIn();
+                }
             }) 
         });
     })(jQuery)
