@@ -20,6 +20,19 @@ function fill_submission_columns($column, $post_id)
         case 'name':
             echo get_post_meta($post_id, 'name', true);
         break;
+        case 'email':
+            echo get_post_meta($post_id, 'email', true);
+        break;
+        case 'phone':
+            echo get_post_meta($post_id, 'phone', true);
+        break;
+        case 'address':
+            echo get_post_meta($post_id, 'address', true);
+        break;
+        case 'message':
+            echo get_post_meta($post_id, 'message', true);
+        break;
+        
     }
 }
 
