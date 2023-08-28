@@ -13,14 +13,23 @@ add_filter('manage_submission_posts_columns', 'custom_submission_columns');
 add_action('manage_submission_posts_custom_column', 'fill_submission_columns', 10, 2);
 
 
-add_action('init', 'setup_search');
+add_action('admin_init', 'setup_search');
+
+
+add_action('wp_enqueue_scripts', 'enqueue_custom_scripts');
+
+
+function enqueue_custom_scripts()
+{
+    wp_enqueue_style('contact_form_plugin', MY_PLUGIN_URL . '/assets/contact_plugin.css');
+}
 
 
 function setup_search()
 {
-    global $type;
+    global $typenow;
 
-    if($type === 'submission')
+    if($typenow === 'submission')
     {
         add_filter('posts_search', 'submission_search_override', 10 , 2);
     }
@@ -29,6 +38,8 @@ function setup_search()
 
 function submission_search_override($search, $query)
 {
+          // Override the submissions page search to include custom meta data
+
     global $wpdb;
 
     if ($query->is_main_query() && !empty($query->query['s'])) {
@@ -55,19 +66,19 @@ function fill_submission_columns($column, $post_id)
     switch($column)
     {
         case 'name':
-            echo get_post_meta($post_id, 'name', true);
+            echo esc_html(get_post_meta($post_id, 'name', true) );
         break;
         case 'email':
-            echo get_post_meta($post_id, 'email', true);
+            echo esc_html(get_post_meta($post_id, 'email', true) );
         break;
         case 'phone':
-            echo get_post_meta($post_id, 'phone', true);
+            echo esc_html(get_post_meta($post_id, 'phone', true) );
         break;
         case 'address':
-            echo get_post_meta($post_id, 'address', true);
+            echo esc_html(get_post_meta($post_id, 'address', true) );
         break;
         case 'message':
-            echo get_post_meta($post_id, 'message', true);
+            echo esc_html(get_post_meta($post_id, 'message', true) );
         break;
         
     }
@@ -133,7 +144,7 @@ function get_form_data($data)
     foreach($params as $label => $value)
     {
         $message .= ucfirst($label) . ':' . $value . "<br>";
-        add_post_meta($post_id, $label, $value);
+        add_post_meta($post_id, $label, sanitize_text_field($value));
     }
 
 
@@ -185,11 +196,11 @@ function display_submission()
     // echo 'Name :' . get_post_meta( get_the_ID(), 'name', true);
 
     echo '<ul>';
-        echo '<li><strong>Name</strong>:<br>' . get_post_meta( get_the_ID(), 'name', true) . '</li>';
-        echo '<li><strong>Email</strong>:<br>' . get_post_meta( get_the_ID(), 'email', true) . '</li>';
-        echo '<li><strong>Phone</strong>:<br>' . get_post_meta( get_the_ID(), 'phone', true) . '</li>';
-        echo '<li><strong>Address</strong>:<br>' . get_post_meta( get_the_ID(), 'address', true) . '</li>';
-        echo '<li><strong>Message</strong>:<br>' . get_post_meta( get_the_ID(), 'message', true) . '</li>';
+        echo '<li><strong>Name</strong>:<br>' . esc_html( get_post_meta( get_the_ID(), 'name', true) ) . '</li>';
+        echo '<li><strong>Email</strong>:<br>' . esc_html( get_post_meta( get_the_ID(), 'email', true) ) . '</li>';
+        echo '<li><strong>Phone</strong>:<br>' . esc_html( get_post_meta( get_the_ID(), 'phone', true) ) . '</li>';
+        echo '<li><strong>Address</strong>:<br>' . esc_html( get_post_meta( get_the_ID(), 'address', true) ) . '</li>';
+        echo '<li><strong>Message</strong>:<br>' . esc_html( get_post_meta( get_the_ID(), 'message', true) ) . '</li>';
 
     echo '</ul>';
 
