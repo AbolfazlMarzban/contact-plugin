@@ -186,7 +186,13 @@ function get_form_data($data)
 
     wp_mail($recipient_email, $subject, $message, $headers);
 
-    return new WP_Rest_Response('The Message was Sent Successfully!', 200);
+    $success_message = 'The Message was Sent Successfully!';
+    if(get_plugin_options('contact_plugin_message')){
+        $success_message = get_plugin_options('contact_plugin_message');
+        $success_message = str_replace('{name}', $params['name'], $success_message);
+    }
+
+    return new WP_Rest_Response($success_message, 200);
 
 }
 
