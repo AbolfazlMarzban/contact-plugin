@@ -156,9 +156,20 @@ function get_form_data($data)
 
     foreach($params as $label => $value)
     {
-        $message .= ucfirst($label) . ':' . $value . "<br>";
+        switch($label)
+        {
+            case 'message':
+                $value = sanitize_textarea_field($value);
+            break;
+            case 'email':
+                $value = sanitize_email($value);
+            break;
+            default:
+                $value = sanitize_text_field($value);
+        }
+        add_post_meta($post_id, sanitize_text_field($label), $value);
+        $message .= sanitize_text_field(ucfirst($label)) . ':' . $value . "<br>";
 
-        add_post_meta($post_id, $label, sanitize_text_field($value));
     }
 
 
