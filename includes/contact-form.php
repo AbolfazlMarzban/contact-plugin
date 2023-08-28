@@ -13,6 +13,38 @@ add_filter('manage_submission_posts_columns', 'custom_submission_columns');
 add_action('manage_submission_posts_custom_column', 'fill_submission_columns', 10, 2);
 
 
+add_action('init', 'setup_search');
+
+
+function setup_search()
+{
+    global $type;
+
+    if($type === 'submission')
+    {
+        add_filter('posts_search', 'submission_search_override', 10 , 2);
+    }
+}
+
+
+function submission_search_override($search, $query)
+{
+    global $wpdb;
+
+    if($query->is_main_query() && !empty($query->query['s'])){
+        $sql = "
+            or exists (
+                select * from {$wpdb->postmeta} where post_id={$wpdb->posts}.ID 
+                and meta_key in ('name', 'email', 'address', 'phone') 
+                and meta_value like %s
+                )
+        ";
+        $like = '%' . $wpdb->esc_like($query->query['s']) . '%';
+        $search = preg_replace()
+
+    }
+}
+
 function fill_submission_columns($column, $post_id)
 {
     switch($column)
