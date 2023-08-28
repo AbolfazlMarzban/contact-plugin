@@ -201,6 +201,8 @@ function create_submission_page()
     $args = [
         'public' => true,
         'has_archive' => true,
+        'menu_position' => 99,
+        'publicly_queryable' => false,
         'labels' => [
             'name' => 'Submissions',
             'singular_name' => 'Submission'

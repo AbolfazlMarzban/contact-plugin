@@ -18,6 +18,7 @@ function load_carbon_fields()
 function create_options_page()
 {
     Container::make( 'theme_options', __( 'Contact form' ) )
+    ->set_page_menu_position(100)
     ->set_icon('dashicons-carrot')
     ->add_fields( array(
         Field::make( 'checkbox', 'contact_plugin_active', __( 'Active' ) ),
