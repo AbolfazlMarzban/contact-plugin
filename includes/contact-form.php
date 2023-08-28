@@ -124,6 +124,9 @@ function get_form_data($data)
     $field_phone = sanitize_text_field( $params['phone']);
     $field_message = sanitize_textarea_field( $params['message']);
 
+    $recipient_email = get_plugin_options('contact_plugin_recipients');
+
+   
 
     if(!wp_verify_nonce($params['_wpnonce'], 'wp_rest'))
     {
@@ -144,6 +147,13 @@ function get_form_data($data)
     $subject = "New contact form plugin entry from {$field_name}";
     $message = '';
     $message .= "Message has been sent from {$field_name} <br /> <br />";
+
+
+    if(!$recipient_email)
+    {
+        $recipient_email = $sender;
+    }
+
 
     $postarr = [
         'post_title' => $field_name,
@@ -174,7 +184,7 @@ function get_form_data($data)
 
 
 
-    wp_mail($sender, $subject, $message, $headers);
+    wp_mail($recipient_email, $subject, $message, $headers);
 
     return new WP_Rest_Response('The Message was Sent Successfully!', 200);
 
