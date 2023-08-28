@@ -1,5 +1,9 @@
 <?php
 
+if (!defined('ABSPATH')) {
+    exit;
+}
+
 add_shortcode('contact', 'show_contact_form');
 
 add_action('rest_api_init', 'create_rest_endpoint');
@@ -112,6 +116,15 @@ function create_rest_endpoint()
 function get_form_data($data)
 {
     $params = $data->get_params();
+
+
+    $field_name = sanitize_text_field( $params['name']);
+    $field_email = sanitize_email( $params['email']);
+    $field_address = sanitize_text_field( $params['address']);
+    $field_phone = sanitize_text_field( $params['phone']);
+    $field_message = sanitize_textarea_field( $params['message']);
+
+
     if(!wp_verify_nonce($params['_wpnonce'], 'wp_rest'))
     {
         return new WP_Rest_Response('Message not Sent!', 422);
@@ -126,14 +139,14 @@ function get_form_data($data)
     $sender = get_bloginfo('admin-email');
     $sender_name = get_bloginfo('name');
     $headers[] = "From: {$sender_name} - {$sender}";
-    $headers[] = "Reply-to: <{$params['name']}> <{$params['email']}>";
+    $headers[] = "Reply-to: <{$field_name}> <{$field_email}>";
     $headers[] = "Content-Type: text/html";
-    $subject = "New contact form plugin entry from {$params['name']}";
+    $subject = "New contact form plugin entry from {$field_name}";
     $message = '';
-    $message .= "Message has been sent from {$params['name']} <br /> <br />";
+    $message .= "Message has been sent from {$field_name} <br /> <br />";
 
     $postarr = [
-        'post_title' => $params['name'],
+        'post_title' => $field_name,
         'post_type' => 'submission',
         'post_status' => 'publish'
     ];
@@ -144,6 +157,7 @@ function get_form_data($data)
     foreach($params as $label => $value)
     {
         $message .= ucfirst($label) . ':' . $value . "<br>";
+
         add_post_meta($post_id, $label, sanitize_text_field($value));
     }
 
