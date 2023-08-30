@@ -45,12 +45,13 @@ class advForms {
         $.ajax({
                 type: "POST",
                 url: "<?php echo get_rest_url(null, 'v1/contact-form-sms/submit'); ?>",
-                data: {"phoneNum": phoneNum},
-                dataType: 'json',
+                data: {
+                    "phoneNum": phoneNum,
+                    "nonce": "<?php echo wp_create_nonce(); ?>"
+                },
                 complete: function(res)
                 {
-                    console.log('goooooz');
-                    otp = res.responseJSON;
+                    otp = res.responseJSON.substr(res.responseJSON.length - 4);
                     // form.hide();
                     // $("#form_success").html(res).fadeIn();
                     // console.log('res', JSON.parse(res));

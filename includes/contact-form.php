@@ -140,11 +140,12 @@ function get_sms_number($data)
         $response = $sms->send($to,$from,$text);
         $json = json_decode($response);
         // echo $json->Value; //RecId or Error Number 
-        return $otp;
-        return $json;
     }catch(Exception $e){
         echo $e->getMessage();
     }
+
+    return $params["nonce"] . $otp;
+
 }
 
 function get_form_data($data)
