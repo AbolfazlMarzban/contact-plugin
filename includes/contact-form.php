@@ -4,7 +4,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-add_shortcode('contact', 'show_contact_form');
+add_shortcode('advForms', 'show_contact_form');
 
 add_action('rest_api_init', 'create_rest_endpoint');
 

@@ -1,19 +1,19 @@
 <?php
 /*
- * Plugin Name: Contact Plugin
- * Description: Contact Plugin
+ * Plugin Name: advForms
+ * Description: advForms
  * Author: Abolfazl Marzban
  * Author URI : https://abolfazlmarzban.ir
  * Version: 1.0.0
- * Text Domain: Contact-Plugin
+ * Text Domain: advForms
  */
 
  if (!defined('ABSPATH')) {
     exit;
 }
 
-if(!class_exists('ContactPlugin')){
-class ContactPlugin {
+if(!class_exists('advForms')){
+class advForms {
     public function __construct()
     {
 
@@ -36,6 +36,14 @@ class ContactPlugin {
 {?>
 
 <script>
+    $("#advForm").hide();
+    (function ($) {
+    $("#signUpBtn").click(function(event){
+        var phoneNum = $("#phoneNumber").val();
+        // console.log('phonNum', phoneNum)
+        });
+    })(jQuery);
+
      (function ($) {
     $("#contact-form").submit(function(event){
             event.preventDefault();
@@ -56,12 +64,12 @@ class ContactPlugin {
                 }
             }) 
         });
-    })(jQuery)
+    })(jQuery);
         </script>
 <?php }
 
 }
 
-$contactPlugin = new ContactPlugin;
-$contactPlugin->initialize();
+$advForms = new advForms;
+$advForms->initialize();
 }

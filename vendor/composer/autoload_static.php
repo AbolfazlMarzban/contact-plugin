@@ -7,6 +7,10 @@ namespace Composer\Autoload;
 class ComposerStaticInitd5e161a99ca69e924e3a20b7b6fe411c
 {
     public static $prefixLengthsPsr4 = array (
+        'M' => 
+        array (
+            'Melipayamak\\' => 12,
+        ),
         'C' => 
         array (
             'Carbon_Fields\\' => 14,
@@ -14,6 +18,10 @@ class ComposerStaticInitd5e161a99ca69e924e3a20b7b6fe411c
     );
 
     public static $prefixDirsPsr4 = array (
+        'Melipayamak\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/melipayamak/php/src',
+        ),
         'Carbon_Fields\\' => 
         array (
             0 => __DIR__ . '/..' . '/htmlburger/carbon-fields/core',

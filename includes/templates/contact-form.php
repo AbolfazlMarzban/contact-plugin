@@ -1,7 +1,12 @@
 <div id="form_success" style="background: green; color: white;"></div>
 <div id="form_errorr" style="background: red; color: white;"></div>
-<form id="contact-form" style="display: flex; flex-direction: column; padding: 30px">
 
+<div id="signupForm" style="display: flex; flex-direction:column; width: 30%;">
+    <label for="phoneNumber" style="text-align: right; margin-bottom: 10px;">شماره تلفن خود را وارد کنید</label>
+    <input type="tel" id="phoneNumber">
+    <button id="signUpBtn" type="submit" style="margin-top: 10px;">ثبت نام</button>
+</div>
+<form id="advForm" style="display: flex; flex-direction: column; padding: 30px">
 
 
 <?php wp_nonce_field('wp_rest'); ?>
