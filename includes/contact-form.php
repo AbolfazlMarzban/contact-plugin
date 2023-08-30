@@ -127,6 +127,8 @@ function create_sms_endpoint()
 function get_sms_number($data)
 {
     $params = $data->get_params();
+    $otp= rand(1000, 9999);
+  
     try{
         $username = '09124246135';
         $password = '#31E4';
@@ -134,15 +136,14 @@ function get_sms_number($data)
         $sms = $api->sms();
         $to = $params["phoneNum"];
         $from = '50004001246135';
-        $text = 'تست وب سرویس ملی پیامک';
+        $text = $otp;
         $response = $sms->send($to,$from,$text);
         $json = json_decode($response);
         echo $json->Value; //RecId or Error Number 
+        return new WP_Rest_Response(json_encode(array("otp" => $otp)), 200);
     }catch(Exception $e){
         echo $e->getMessage();
     }
-    return new WP_Rest_Response($params["phoneNum"], 200);
-    
 }
 
 function get_form_data($data)

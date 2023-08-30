@@ -37,6 +37,7 @@ class advForms {
    public function load_script()
 {?>
 <script>
+    var otp = '';
     $("#advForm").hide();
     (function ($) {
     $("#signUpBtn").click(function(event){
@@ -45,14 +46,19 @@ class advForms {
                 type: "POST",
                 url: "<?php echo get_rest_url(null, 'v1/contact-form-sms/submit'); ?>",
                 data: {"phoneNum": phoneNum},
-                // success: function(res)
-                // {
-                //     form.hide();
-                //     $("#form_success").html(res).fadeIn();
-                // },
+                dataType: 'json',
+                complete: function(res)
+                {
+                    console.log('goooooz');
+                    console.log('res', JSON.parse(res));
+                    // form.hide();
+                    // $("#form_success").html(res).fadeIn();
+                    // console.log('res', JSON.parse(res));
+                },
                 // error: function()
                 // {
-                //     $("#form_error").html("There was an error submitting your form!").fadeIn();
+                //     console.log('chos');
+                //     // $("#form_error").html("There was an error submitting your form!").fadeIn();
                 // }
             })
     });
