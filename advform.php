@@ -38,10 +38,13 @@ class advForms {
 {?>
 <script>
     var otp = '';
-    $("#advForm").hide();
+    var phone = '';
+    var phoneNum = '';
+    // $("#advForm").hide();
+    $("#codeBox").hide();
     (function ($) {
     $("#signUpBtn").click(function(event){
-        var phoneNum = $("#phoneNumber").val();
+         phoneNum = $("#phoneNumber").val();
         $.ajax({
                 type: "POST",
                 url: "<?php echo get_rest_url(null, 'v1/contact-form-sms/submit'); ?>",
@@ -52,18 +55,30 @@ class advForms {
                 complete: function(res)
                 {
                     otp = res.responseJSON.substr(res.responseJSON.length - 4);
-                    // form.hide();
-                    // $("#form_success").html(res).fadeIn();
-                    // console.log('res', JSON.parse(res));
+                    console.log('otp', otp)
+                    $("#signupForm").hide();
+                    $("#form_errorr").hide();
+                    $("#codeBox").fadeIn();
                 },
-                // error: function()
-                // {
-                //     console.log('chos');
-                //     // $("#form_error").html("There was an error submitting your form!").fadeIn();
-                // }
             })
     });
     })(jQuery);
+    
+    (function ($) {
+    $("#submitCode").click(function(event){
+        var code = $("#sentCode").val();
+        if(code == otp){
+           phone = phoneNum;
+           $("#codeBox").hide();
+           $("#advForm").fadeIn();
+        } else {
+            $("#form_errorr").html("کد وارد شده اشتباه است!").fadeIn();
+            $("#codeBox").hide();
+            $("#signupForm").fadeIn();
+        }
+    });
+    })(jQuery);
+
 
      (function ($) {
     $("#contact-form").submit(function(event){
