@@ -8,17 +8,19 @@
  * Text Domain: advForms
  */
 
+
+
  if (!defined('ABSPATH')) {
     exit;
 }
 
 if(!class_exists('advForms')){
+    
 class advForms {
     public function __construct()
     {
 
         add_action('wp_footer', array($this, 'load_script'));
-
         define('MY_PLUGIN_PATH',  plugin_dir_path(__FILE__));
         define('MY_PLUGIN_URL', plugin_dir_url(__FILE__));
         require_once( MY_PLUGIN_PATH .'/vendor/autoload.php');
@@ -34,14 +36,26 @@ class advForms {
 
    public function load_script()
 {?>
-
 <script>
     $("#advForm").hide();
     (function ($) {
     $("#signUpBtn").click(function(event){
         var phoneNum = $("#phoneNumber").val();
-        // console.log('phonNum', phoneNum)
-        });
+        $.ajax({
+                type: "POST",
+                url: "<?php echo get_rest_url(null, 'v1/contact-form-sms/submit'); ?>",
+                data: {"phoneNum": phoneNum},
+                // success: function(res)
+                // {
+                //     form.hide();
+                //     $("#form_success").html(res).fadeIn();
+                // },
+                // error: function()
+                // {
+                //     $("#form_error").html("There was an error submitting your form!").fadeIn();
+                // }
+            })
+    });
     })(jQuery);
 
      (function ($) {

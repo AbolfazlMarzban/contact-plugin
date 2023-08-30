@@ -3,10 +3,14 @@
 if (!defined('ABSPATH')) {
     exit;
 }
+use Melipayamak\MelipayamakApi;
 
 add_shortcode('advForms', 'show_contact_form');
 
 add_action('rest_api_init', 'create_rest_endpoint');
+
+
+add_action('rest_api_init', 'create_sms_endpoint');
 
 add_action('init', 'create_submission_page');
 
@@ -111,6 +115,34 @@ function create_rest_endpoint()
         'methods' => 'POST',
         'callback' => 'get_form_data'
     ));
+}
+
+function create_sms_endpoint()
+{
+    register_rest_route('v1/contact-form-sms', 'submit', array(
+        'methods' => 'POST',
+        'callback' => 'get_sms_number'
+    ));
+}
+function get_sms_number($data)
+{
+    $params = $data->get_params();
+    try{
+        $username = '09124246135';
+        $password = '#31E4';
+        $api = new MelipayamakApi($username,$password);
+        $sms = $api->sms();
+        $to = $params["phoneNum"];
+        $from = '50004001246135';
+        $text = 'تست وب سرویس ملی پیامک';
+        $response = $sms->send($to,$from,$text);
+        $json = json_decode($response);
+        echo $json->Value; //RecId or Error Number 
+    }catch(Exception $e){
+        echo $e->getMessage();
+    }
+    return new WP_Rest_Response($params["phoneNum"], 200);
+    
 }
 
 function get_form_data($data)
