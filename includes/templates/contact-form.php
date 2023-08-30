@@ -79,10 +79,62 @@
             </div>
 
 
+            <label for="birthDate" style="text-align: right; margin-top:20px;">تاریخ تولد میلادی</label>
+            <input type="date" name="birthDate" id="birthDate" style="text-align: end;">
+
+            <label for="imigrationIntent" style="text-align: right; margin-top: 20px;">آیا تا به حال برای مهاجرت به آمریکا از مسیر دیگری اقدام کرده اید؟</label>
+            <div style="display: flex; align-items: end; flex-direction:column;">
+                <div style="display: flex; align-items:center;">
+
+                    <label for="imigrationIntent" style="margin-right: 10px;">بله</label>
+                    <input type="radio" name="imigrationIntent" value="بله">
+                    <br>
+                </div>
+                <div style="display: flex; align-items:center;">
+                    <label for="imigrationIntent" style="margin-right: 10px;">خیر</label>
+                    <input type="radio" name="imigrationIntent" value="خیر">
+
+                    <br>
+                </div>
+            </div>
+
 
             <div style="margin-top: 10px;">
                 <button id="next">بعدی</button>
+                <button id="next">قبلی</button>
+
             </div>
+
+        </div>
+
+
+        <div id="thirdStep" style="display: flex; flex-direction: column;">
+            <div style="display: flex; align-items: end; flex-direction:column;">
+                <label for="">محل تولد</label>
+                <div style="display: flex; align-items:center;">
+
+                    <label for="birthPlace" style="margin-right: 10px;">ایران</label>
+                    <input type="radio" name="birthPlace" value="iran">
+                    <br>
+                </div>
+                <div style="display: flex; align-items:center;">
+                    <input type="text" name="birthPlace" style="margin-right: 10px;">
+                    <label for="birthPlace" style="margin-right: 10px;">کشور دیگر</label>
+                    <br>
+                </div>
+            </div>
+
+
+            <label for="livingPlace" style="text-align: right; margin-top: 20px;">کشور محل زندگی در حال حاضر به انگلیسی</label>
+            <input type="text" name="livingPlace" id="livingPlace" style="margin-top: 10px;">
+
+            <div style="margin-top: 10px;">
+                <button id="next">بعدی</button>
+                <button id="next">قبلی</button>
+
+            </div>
+
+        </div>
 
         </div>
 
