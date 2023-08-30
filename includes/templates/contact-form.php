@@ -1,3 +1,5 @@
+<?php if( get_plugin_options('contact_plugin_active')): ?>
+
 <div id="form_success" style="background: green; color: white;"></div>
 <div id="form_errorr" style="background: red; color: white;"></div>
 
@@ -30,3 +32,5 @@
 
 <button type="submit">Submit</button>
 </form>
+
+<?php endif; ?>

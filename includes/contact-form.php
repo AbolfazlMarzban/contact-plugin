@@ -124,6 +124,9 @@ function get_form_data($data)
     $field_phone = sanitize_text_field( $params['phone']);
     $field_message = sanitize_textarea_field( $params['message']);
 
+    $recipient_email = get_plugin_options('contact_plugin_recipients');
+
+   
 
     if(!wp_verify_nonce($params['_wpnonce'], 'wp_rest'))
     {
@@ -145,6 +148,13 @@ function get_form_data($data)
     $message = '';
     $message .= "Message has been sent from {$field_name} <br /> <br />";
 
+
+    if(!$recipient_email)
+    {
+        $recipient_email = $sender;
+    }
+
+
     $postarr = [
         'post_title' => $field_name,
         'post_type' => 'submission',
@@ -156,16 +166,33 @@ function get_form_data($data)
 
     foreach($params as $label => $value)
     {
-        $message .= ucfirst($label) . ':' . $value . "<br>";
+        switch($label)
+        {
+            case 'message':
+                $value = sanitize_textarea_field($value);
+            break;
+            case 'email':
+                $value = sanitize_email($value);
+            break;
+            default:
+                $value = sanitize_text_field($value);
+        }
+        add_post_meta($post_id, sanitize_text_field($label), $value);
+        $message .= sanitize_text_field(ucfirst($label)) . ':' . $value . "<br>";
 
-        add_post_meta($post_id, $label, sanitize_text_field($value));
     }
 
 
 
-    wp_mail($sender, $subject, $message, $headers);
+    wp_mail($recipient_email, $subject, $message, $headers);
 
-    return new WP_Rest_Response('The Message was Sent Successfully!', 200);
+    $success_message = 'The Message was Sent Successfully!';
+    if(get_plugin_options('contact_plugin_message')){
+        $success_message = get_plugin_options('contact_plugin_message');
+        $success_message = str_replace('{name}', $params['name'], $success_message);
+    }
+
+    return new WP_Rest_Response($success_message, 200);
 
 }
 
@@ -174,9 +201,12 @@ function create_submission_page()
     $args = [
         'public' => true,
         'has_archive' => true,
+        'menu_position' => 99,
+        'publicly_queryable' => false,
         'labels' => [
             'name' => 'Submissions',
-            'singular_name' => 'Submission'
+            'singular_name' => 'Submission',
+            'edit_item' => 'view form'
         ],
         'supports' => ['title', 'editor', 'custom-fields'],
         'capability_type' => 'post',
