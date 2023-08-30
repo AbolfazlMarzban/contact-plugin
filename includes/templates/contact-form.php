@@ -39,8 +39,23 @@
         
 
         <div id="secondStep" style="display: flex; flex-direction: column;">
-        <label for="First Name">جنسیت</label>
-        <input type="text" name="firstName">
+        <label for="First Name" style="text-align: right;">جنسیت</label>
+        <div style="display: flex; align-items: end; flex-direction:column;"> 
+        <div style="display: flex; align-items:center;">
+            
+                    <label for="مرد" style="margin-right: 10px;">مرد</label>
+                    <input type="radio" name="sex" value="مرد">
+        <br>
+            </div>
+            <div style="display: flex; align-items:center;">
+        <label for="زن"  style="margin-right: 10px;">زن</label>
+        <input type="radio" name="sex" value="زن">
+
+        <br>
+            </div>
+        </div>
+       
+        
 
 
         <label for="Last Name">Last Name</label>
