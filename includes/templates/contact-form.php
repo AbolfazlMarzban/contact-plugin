@@ -18,58 +18,71 @@
 
         <?php wp_nonce_field('wp_rest'); ?>
         <div id="firstStep" style="display: flex; flex-direction: column;">
-        <label for="First Name">First Name</label>
-        <input type="text" name="firstName">
+            <label for="First Name">First Name</label>
+            <input type="text" name="firstName">
 
 
-        <label for="Last Name">Last Name</label>
-        <input type="text" name="lastName">
+            <label for="Last Name">Last Name</label>
+            <input type="text" name="lastName">
 
 
-        <label for="passport Picture">Passport Picture</label>
-        <input type="file" name="passport">
+            <label for="passport Picture">Passport Picture</label>
+            <input type="file" name="passport">
 
-        <p style="color: red; text-align:right">توجه: در صورت تغییر اسم و فامیل لطفا نام قبلی را درج فرمایید</p>
-        <textarea name="changeName" id="changeName" cols="30" rows="10" placeholder="در این کادر نام قبلی خود را به همراهتوضیحات مربوط به این تغییر نام درج فرمایید." style="text-align: right;"></textarea>
-        <div style="margin-top: 10px;">
-            <button id="next">بعدی</button>
+            <p style="color: red; text-align:right">توجه: در صورت تغییر اسم و فامیل لطفا نام قبلی را درج فرمایید</p>
+            <textarea name="changeName" id="changeName" cols="30" rows="10" placeholder="در این کادر نام قبلی خود را به همراهتوضیحات مربوط به این تغییر نام درج فرمایید." style="text-align: right;"></textarea>
+            <div style="margin-top: 10px;">
+                <button id="next">بعدی</button>
+            </div>
+
         </div>
 
-        </div>
-        
 
         <div id="secondStep" style="display: flex; flex-direction: column;">
-        <label for="First Name" style="text-align: right;">جنسیت</label>
-        <div style="display: flex; align-items: end; flex-direction:column;"> 
-        <div style="display: flex; align-items:center;">
-            
+            <label for="First Name" style="text-align: right;">جنسیت</label>
+            <div style="display: flex; align-items: end; flex-direction:column;">
+                <div style="display: flex; align-items:center;">
+
                     <label for="مرد" style="margin-right: 10px;">مرد</label>
                     <input type="radio" name="sex" value="مرد">
-        <br>
+                    <br>
+                </div>
+                <div style="display: flex; align-items:center;">
+                    <label for="زن" style="margin-right: 10px;">زن</label>
+                    <input type="radio" name="sex" value="زن">
+
+                    <br>
+                </div>
             </div>
-            <div style="display: flex; align-items:center;">
-        <label for="زن"  style="margin-right: 10px;">زن</label>
-        <input type="radio" name="sex" value="زن">
 
-        <br>
+
+            <label for="First Name" style="text-align: right; margin-top: 20px;">وضعیت تأهل</label>
+            <div style="display: flex; align-items: end; flex-direction:column;">
+                <div style="display: flex; align-items:center;">
+
+                    <label for="single" style="margin-right: 10px;">مجرد (هیچ گاه ازدواج نکرده اید)</label>
+                    <input type="radio" name="single" value="single">
+                    <br>
+                </div>
+                <div style="display: flex; align-items:center;">
+                    <label for="married" style="margin-right: 10px;">متأهل</label>
+                    <input type="radio" name="married" value="married">
+
+                    <br>
+                </div>
+                <div style="display: flex; align-items:center;">
+                    <label for="notMarried" style="margin-right: 10px;">از همسر خود جدا شده اید</label>
+                    <input type="radio" name="notMarried" value="notMarried">
+
+                    <br>
+                </div>
             </div>
-        </div>
-       
-        
 
 
-        <label for="Last Name">Last Name</label>
-        <input type="text" name="lastName">
 
-
-        <label for="passport Picture">Passport Picture</label>
-        <input type="file" name="passport">
-
-        <p style="color: red; text-align:right">توجه: در صورت تغییر اسم و فامیل لطفا نام قبلی را درج فرمایید</p>
-        <textarea name="changeName" id="changeName" cols="30" rows="10" placeholder="در این کادر نام قبلی خود را به همراهتوضیحات مربوط به این تغییر نام درج فرمایید." style="text-align: right;"></textarea>
-        <div style="margin-top: 10px;">
-            <button id="next">بعدی</button>
-        </div>
+            <div style="margin-top: 10px;">
+                <button id="next">بعدی</button>
+            </div>
 
         </div>
 
