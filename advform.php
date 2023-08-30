@@ -50,7 +50,7 @@ class advForms {
                 complete: function(res)
                 {
                     console.log('goooooz');
-                    console.log('res', JSON.parse(res));
+                    otp = res.responseJSON;
                     // form.hide();
                     // $("#form_success").html(res).fadeIn();
                     // console.log('res', JSON.parse(res));

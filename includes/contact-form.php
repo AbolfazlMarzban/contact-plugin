@@ -139,8 +139,9 @@ function get_sms_number($data)
         $text = $otp;
         $response = $sms->send($to,$from,$text);
         $json = json_decode($response);
-        echo $json->Value; //RecId or Error Number 
-        return new WP_Rest_Response(json_encode(array("otp" => $otp)), 200);
+        // echo $json->Value; //RecId or Error Number 
+        return $otp;
+        return $json;
     }catch(Exception $e){
         echo $e->getMessage();
     }
