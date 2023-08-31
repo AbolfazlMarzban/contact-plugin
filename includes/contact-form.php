@@ -239,7 +239,7 @@ function create_submission_page()
         'menu_position' => 99,
         'publicly_queryable' => false,
         'labels' => [
-            'name' => 'Submissions',
+            'name' => 'فرم ها',
             'singular_name' => 'Submission',
             'edit_item' => 'view form'
         ],

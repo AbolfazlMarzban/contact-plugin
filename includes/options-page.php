@@ -17,9 +17,9 @@ function load_carbon_fields()
 
 function create_options_page()
 {
-    Container::make( 'theme_options', __( 'Contact form' ) )
+    Container::make( 'theme_options', __( 'تنظیمات فرم' ) )
     ->set_page_menu_position(100)
-    ->set_icon('dashicons-carrot')
+    ->set_icon('dashicons-media-document')
     ->add_fields( array(
         Field::make( 'checkbox', 'contact_plugin_active', __( 'Active' ) ),
         Field::make( 'text', 'contact_plugin_recipients', __( 'Recipient Email' ) )
