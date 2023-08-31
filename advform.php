@@ -200,6 +200,30 @@ class advForms {
            $("#eighthStep").hide();
            $("#ninethStep").hide();
         });
+        $("#eighthNext").click(function(event){
+            event.preventDefault();
+           $("#firstStep").hide();
+           $("#secondStep").hide();
+           $("#thirdStep").hide();
+           $("#fourthStep").hide();
+           $("#fifthStep").hide();
+           $("#sixthStep").hide();
+           $("#seventhStep").hide();
+           $("#eighthStep").hide();
+           $("#ninethStep").fadeIn();
+        });
+        $("#eighthPrev").click(function(event){
+            event.preventDefault();
+           $("#firstStep").hide();
+           $("#secondStep").hide();
+           $("#thirdStep").hide();
+           $("#fourthStep").hide();
+           $("#fifthStep").hide();
+           $("#sixthStep").hide();
+           $("#seventhStep").fadeIn();
+           $("#eighthStep").hide();
+           $("#ninethStep").hide();
+        });
     })(jQuery);
     (function ($) {
     $("#signUpBtn").click(function(event){

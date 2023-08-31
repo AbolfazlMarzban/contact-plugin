@@ -297,8 +297,8 @@
             <input type="date" name="middleScEnd" id="middleScEnd" style="text-align:right;">
 
             <div style="margin-top: 10px;">
-                <button id="next">بعدی</button>
-                <button id="next">قبلی</button>
+                <button id="eighthNext">بعدی</button>
+                <button id="eighthPrev">قبلی</button>
 
             </div>
 
