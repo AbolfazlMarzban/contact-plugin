@@ -40,8 +40,167 @@ class advForms {
     var otp = '';
     var phone = '';
     var phoneNum = '';
-    // $("#advForm").hide();
-    // $("#codeBox").hide();
+    $("#advForm").hide();
+    $("#codeBox").hide();
+
+    (function($){
+        $("#firstNext").click(function(event){
+            event.preventDefault();
+           $("#firstStep").hide();
+           $("#secondStep").fadeIn();
+           $("#thirdStep").hide();
+           $("#fourthStep").hide();
+           $("#fifthStep").hide();
+           $("#sixthStep").hide();
+           $("#seventhStep").hide();
+           $("#eighthStep").hide();
+           $("#ninethStep").hide();
+        });
+        $("#secondNext").click(function(event){
+            event.preventDefault();
+           $("#firstStep").hide();
+           $("#secondStep").hide();
+           $("#thirdStep").fadeIn();
+           $("#fourthStep").hide();
+           $("#fifthStep").hide();
+           $("#sixthStep").hide();
+           $("#seventhStep").hide();
+           $("#eighthStep").hide();
+           $("#ninethStep").hide();
+        });
+        $("#secondPrev").click(function(event){
+            event.preventDefault();
+           $("#firstStep").fadeIn();
+           $("#secondStep").hide();
+           $("#thirdStep").hide();
+           $("#fourthStep").hide();
+           $("#fifthStep").hide();
+           $("#sixthStep").hide();
+           $("#seventhStep").hide();
+           $("#eighthStep").hide();
+           $("#ninethStep").hide();
+        });
+        $("#thirdNext").click(function(event){
+            event.preventDefault();
+           $("#firstStep").hide();
+           $("#secondStep").hide();
+           $("#thirdStep").hide();
+           $("#fourthStep").fadeIn();
+           $("#fifthStep").hide();
+           $("#sixthStep").hide();
+           $("#seventhStep").hide();
+           $("#eighthStep").hide();
+           $("#ninethStep").hide();
+        });
+        $("#thirdPrev").click(function(event){
+            event.preventDefault();
+           $("#firstStep").hide();
+           $("#secondStep").fadeIn();
+           $("#thirdStep").hide();
+           $("#fourthStep").hide();
+           $("#fifthStep").hide();
+           $("#sixthStep").hide();
+           $("#seventhStep").hide();
+           $("#eighthStep").hide();
+           $("#ninethStep").hide();
+        });
+        $("#fourthNext").click(function(event){
+            event.preventDefault();
+           $("#firstStep").hide();
+           $("#secondStep").hide();
+           $("#thirdStep").hide();
+           $("#fourthStep").hide();
+           $("#fifthStep").fadeIn();
+           $("#sixthStep").hide();
+           $("#seventhStep").hide();
+           $("#eighthStep").hide();
+           $("#ninethStep").hide();
+        });
+        $("#fourthPrev").click(function(event){
+            event.preventDefault();
+           $("#firstStep").hide();
+           $("#secondStep").hide();
+           $("#thirdStep").fadeIn();
+           $("#fourthStep").hide();
+           $("#fifthStep").hide();
+           $("#sixthStep").hide();
+           $("#seventhStep").hide();
+           $("#eighthStep").hide();
+           $("#ninethStep").hide();
+        });
+        $("#fifthNext").click(function(event){
+            event.preventDefault();
+           $("#firstStep").hide();
+           $("#secondStep").hide();
+           $("#thirdStep").hide();
+           $("#fourthStep").hide();
+           $("#fifthStep").hide();
+           $("#sixthStep").fadeIn();
+           $("#seventhStep").hide();
+           $("#eighthStep").hide();
+           $("#ninethStep").hide();
+        });
+        $("#fifthPrev").click(function(event){
+            event.preventDefault();
+           $("#firstStep").hide();
+           $("#secondStep").hide();
+           $("#thirdStep").hide();
+           $("#fourthStep").fadeIn();
+           $("#fifthStep").hide();
+           $("#sixthStep").hide();
+           $("#seventhStep").hide();
+           $("#eighthStep").hide();
+           $("#ninethStep").hide();
+        });
+        $("#sixthNext").click(function(event){
+            event.preventDefault();
+           $("#firstStep").hide();
+           $("#secondStep").hide();
+           $("#thirdStep").hide();
+           $("#fourthStep").hide();
+           $("#fifthStep").hide();
+           $("#sixthStep").hide();
+           $("#seventhStep").fadeIn();
+           $("#eighthStep").hide();
+           $("#ninethStep").hide();
+        });
+        $("#sixthPrev").click(function(event){
+            event.preventDefault();
+           $("#firstStep").hide();
+           $("#secondStep").hide();
+           $("#thirdStep").hide();
+           $("#fourthStep").hide();
+           $("#fifthStep").fadeIn();
+           $("#sixthStep").hide();
+           $("#seventhStep").hide();
+           $("#eighthStep").hide();
+           $("#ninethStep").hide();
+        });
+        $("#seventhNext").click(function(event){
+            event.preventDefault();
+           $("#firstStep").hide();
+           $("#secondStep").hide();
+           $("#thirdStep").hide();
+           $("#fourthStep").hide();
+           $("#fifthStep").hide();
+           $("#sixthStep").hide();
+           $("#seventhStep").hide();
+           $("#eighthStep").fadeIn();
+           $("#ninethStep").hide();
+        });
+        $("#seventhPrev").click(function(event){
+            event.preventDefault();
+           $("#firstStep").hide();
+           $("#secondStep").hide();
+           $("#thirdStep").hide();
+           $("#fourthStep").hide();
+           $("#fifthStep").hide();
+           $("#sixthStep").fadeIn();
+           $("#seventhStep").hide();
+           $("#eighthStep").hide();
+           $("#ninethStep").hide();
+        });
+    })(jQuery);
     (function ($) {
     $("#signUpBtn").click(function(event){
          phoneNum = $("#phoneNumber").val();
@@ -71,6 +230,15 @@ class advForms {
            phone = phoneNum;
            $("#codeBox").hide();
            $("#advForm").fadeIn();
+           $("#secondStep").hide();
+           $("#thirdStep").hide();
+           $("#fourthStep").hide();
+           $("#fifthStep").hide();
+           $("#sixthStep").hide();
+           $("#seventhStep").hide();
+           $("#eighthStep").hide();
+           $("#ninethStep").hide();
+
         } else {
             $("#form_errorr").html("کد وارد شده اشتباه است!").fadeIn();
             $("#codeBox").hide();

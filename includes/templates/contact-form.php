@@ -1,18 +1,18 @@
-<!-- <?php if (get_plugin_options('contact_plugin_active')): ?> -->
+<?php if (get_plugin_options('contact_plugin_active')): ?>
 
     <div id="form_success" style="background: green; color: white;"></div>
     <div id="form_errorr" style="background: red; color: white;text-align:right;"></div>
 
-    <!-- <div id="signupForm" style="display: flex; flex-direction:column; width: 30%;">
+    <div id="signupForm" style="display: flex; flex-direction:column; width: 30%;">
     <label for="phoneNumber" id="phoneLabel" style="text-align: right; margin-bottom: 10px;">شماره تلفن خود را وارد کنید</label>
     <input type="tel" id="phoneNumber">
     <button id="signUpBtn" type="submit" style="margin-top: 10px;">ارسال کد</button>
-</div> -->
-    <!-- <div id="codeBox" style="display: flex; flex-direction:column; width: 30%;">
+</div>
+    <div id="codeBox" style="display: flex; flex-direction:column; width: 30%;">
     <label for="phoneNumber" id="phoneLabel" style="text-align: right; margin-bottom: 10px;">کد ارسال شده را وارد کنید</label>
     <input type="tel" id="sentCode">
     <button id="submitCode" type="submit" style="margin-top: 10px;">ثبت نام</button>
-</div> -->
+</div>
     <form id="advForm" style="display: flex; flex-direction: column; padding: 30px">
 
 
@@ -34,7 +34,7 @@
                 placeholder="در این کادر نام قبلی خود را به همراهتوضیحات مربوط به این تغییر نام درج فرمایید."
                 style="text-align: right;"></textarea>
             <div style="margin-top: 10px;">
-                <button id="next">بعدی</button>
+                <button id="firstNext">بعدی</button>
             </div>
 
         </div>
@@ -103,8 +103,8 @@
 
 
             <div style="margin-top: 10px;">
-                <button id="next">بعدی</button>
-                <button id="next">قبلی</button>
+                <button id="secondNext">بعدی</button>
+                <button id="secondPrev">قبلی</button>
 
             </div>
 
@@ -151,8 +151,8 @@
             <input type="tel" name="phone" id="phone" style="margin-top:10px;">
 
             <div style="margin-top: 10px;">
-                <button id="next">بعدی</button>
-                <button id="next">قبلی</button>
+                <button id="thirdNext">بعدی</button>
+                <button id="thirdPrev">قبلی</button>
 
             </div>
 
@@ -179,8 +179,8 @@
 
 
             <div style="margin-top: 10px;">
-                <button id="next">بعدی</button>
-                <button id="next">قبلی</button>
+                <button id="fourthNext">بعدی</button>
+                <button id="fourthPrev">قبلی</button>
 
             </div>
         </div>
@@ -197,8 +197,8 @@
             <label for="bachelorend" style="text-align:right; margin-top: 10px">تاریخ فارغ التحصیلی به میلادی</label>
             <input type="date" name="bachelorend" id="bachelorend" style="text-align:right;">
             <div style="margin-top: 10px;">
-                <button id="next">بعدی</button>
-                <button id="next">قبلی</button>
+                <button id="fifthNext">بعدی</button>
+                <button id="fifthPrev">قبلی</button>
 
             </div>
 
@@ -239,8 +239,8 @@
             <input type="date" name="highScend" id="highScend" style="text-align:right;">
 
             <div style="margin-top: 10px;">
-                <button id="next">بعدی</button>
-                <button id="next">قبلی</button>
+                <button id="sixthNext">بعدی</button>
+                <button id="sixthPrev">قبلی</button>
 
             </div>
 
@@ -268,8 +268,8 @@
             <input type="date" name="preUniEnd" id="preUniEnd" style="text-align:right;">
 
             <div style="margin-top: 10px;">
-                <button id="next">بعدی</button>
-                <button id="next">قبلی</button>
+                <button id="seventhNext">بعدی</button>
+                <button id="seventhPrev">قبلی</button>
 
             </div>
 
@@ -336,4 +336,4 @@
 
     </form>
 
-    <!-- <?php endif; ?> -->
+    <?php endif; ?>
