@@ -219,7 +219,7 @@
             </div>
 
 
-            <label for="" style="margin-top: 10px; text-align: right;">اطلاعات محل تحصیل</label>
+            <label for="" style="margin-top: 10px; text-align: right;">اطلاعات دبیرستان</label>
 
 
             <label for="schoolCountry" style="text-align:right; margin-top: 10px;">کشور محل تحصیل</label>
@@ -227,6 +227,45 @@
 
             <label for="schoolName" style="text-align:right; margin-top: 10px;">نام مدرسه</label>
             <input type="text" name="schoolName" id="schoolName">
+
+            
+            <label for="eduName" style="text-align:right; margin-top: 10px;">نام شما در زمان تحصیل</label>
+            <input type="text" name="eduName" id="eduName" placeholder=" در صورت تغییر نام پر شود">
+
+            <label for="highScstart" style="text-align:right; margin-top: 10px">تاریخ شروع تحصیل به میلادی</label>
+            <input type="date" name="highScstart" id="highScstart" style="text-align:right;">
+
+            <label for="highScend" style="text-align:right; margin-top: 10px">تاریخ فارغ التحصیلی به میلادی</label>
+            <input type="date" name="highScend" id="highScend" style="text-align:right;">
+            
+            <div style="margin-top: 10px;">
+                <button id="next">بعدی</button>
+                <button id="next">قبلی</button>
+
+            </div>
+
+        </div>
+
+        <div id="seventhStep" style="display: flex; flex-direction: column;">
+
+            <label for="" style="margin-top: 10px; text-align: right;">اطلاعات پیش دانشگاهی</label>
+
+
+            <label for="preUniCountry" style="text-align:right; margin-top: 10px;">کشور محل تحصیل</label>
+            <input type="text" name="preUniCountry" id="preUniCountry">
+
+            <label for="preUniName" style="text-align:right; margin-top: 10px;">نام مدرسه</label>
+            <input type="text" name="preUniName" id="preUniName">
+
+            
+            <label for="preUniName" style="text-align:right; margin-top: 10px;">نام شما در زمان تحصیل</label>
+            <input type="text" name="preUniName" id="preUniName" placeholder=" در صورت تغییر نام پر شود">
+
+            <label for="preUniStart" style="text-align:right; margin-top: 10px">تاریخ شروع تحصیل به میلادی</label>
+            <input type="date" name="preUniStart" id="preUniStart" style="text-align:right;">
+
+            <label for="preUniEnd" style="text-align:right; margin-top: 10px">تاریخ فارغ التحصیلی به میلادی</label>
+            <input type="date" name="preUniEnd" id="preUniEnd" style="text-align:right;">
             
             <div style="margin-top: 10px;">
                 <button id="next">بعدی</button>
