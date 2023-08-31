@@ -135,11 +135,17 @@
 
             <label for="address" style="text-align: right; margin-top: 20px;">آدرس محل سکونت</label>
             <textarea name="address" id="address" cols="30" rows="10" placeholder="Example
-No number
-Street
-City
-Country
-province"></textarea>
+                    No number
+                    Street
+                    City
+                    Country
+                    province"></textarea>
+
+
+            <label for="phone" style="text-align:right; margin-top: 20px;">شماره تماس</label>
+            <input type="tel" name="phone" id="phone" style="margin-top:10px;">
+            <input type="tel" name="phone" id="phone" style="margin-top:10px;">
+
             <div style="margin-top: 10px;">
                 <button id="next">بعدی</button>
                 <button id="next">قبلی</button>
@@ -148,6 +154,31 @@ province"></textarea>
 
         </div>
 
+        <div id="fourthStep" style="display: flex; flex-direction: column;">
+            <label for="employmentRecords" style="text-align:right">اطلاعات سابقه کاری</label>
+            <textarea name="employmentRecords" id="employmentRecords" cols="30" rows="10"
+                style="text-align: right; margin-top: 10px;"
+                placeholder="نام محل خدمت:
+                            نام سوپروایزر:
+                            کشور محل خدمت:
+                            ادرس محل خدمت:
+                            تایم کاری ( نیمه وقت و یا تمام وقت)
+                            "
+            ></textarea>
+
+            <label for="daneshNameh" style="text-align:right; margin-top: 10px">تصویر با کیفیت دانشنامه (اصل و ترجمه)</label>
+            <input type="file" name="daneshNameh" id="daneshNameh">
+
+
+            <label for="rizNomarat" style="text-align:right; margin-top: 10px">تصویر با کیفیت از تمام صفحات ریزنمرات (اصل و ترجمه)</label>
+            <input type="file" name="rizNomarat" id="rizNomarat">
+
+
+            <div style="margin-top: 10px;">
+                <button id="next">بعدی</button>
+                <button id="next">قبلی</button>
+
+            </div>
         </div>
 
         <!-- <button type="submit">Submit</button> -->
