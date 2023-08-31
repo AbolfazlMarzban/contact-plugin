@@ -322,15 +322,15 @@
             <p style="text-align:right; margin-top: 10px;">اگر بله</p>
 
 
-            <label for="langDeg">نوع مدرک</label>
+            <label for="langDeg" style="text-align:right;">نوع مدرک</label>
             <input type="text" name="langDeg" id="langDeg">
 
 
-            <label for="langScore">نمره</label>
+            <label for="langScore" style="text-align:right; margin-top: 10px;">نمره</label>
             <input type="text" name="langScore" id="langScore">
 
 
-                    <button type="submit">ارسال اطلاعات</button>
+                    <button type="submit" style="margin-top: 20px;">ارسال اطلاعات</button>
 
         </div>
 
