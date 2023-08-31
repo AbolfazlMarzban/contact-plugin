@@ -1,4 +1,4 @@
-<?php if (get_plugin_options('contact_plugin_active')) : ?>
+<!-- <?php if (get_plugin_options('contact_plugin_active')) : ?> -->
 
     <div id="form_success" style="background: green; color: white;"></div>
     <div id="form_errorr" style="background: red; color: white;text-align:right;"></div>
@@ -128,6 +128,18 @@
             <label for="livingPlace" style="text-align: right; margin-top: 20px;">کشور محل زندگی در حال حاضر به انگلیسی</label>
             <input type="text" name="livingPlace" id="livingPlace" style="margin-top: 10px;">
 
+            
+            <label for="passport Picture" style="text-align: right; margin-top: 20px;">تصویر پاسپورت</label>
+            <input type="file" name="passport">
+
+
+            <label for="address" style="text-align: right; margin-top: 20px;">آدرس محل سکونت</label>
+            <textarea name="address" id="address" cols="30" rows="10" placeholder="Example
+No number
+Street
+City
+Country
+province"></textarea>
             <div style="margin-top: 10px;">
                 <button id="next">بعدی</button>
                 <button id="next">قبلی</button>
@@ -141,4 +153,4 @@
         <!-- <button type="submit">Submit</button> -->
     </form>
 
-<?php endif; ?>
+<!-- <?php endif; ?> -->

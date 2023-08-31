@@ -41,7 +41,7 @@ class advForms {
     var phone = '';
     var phoneNum = '';
     // $("#advForm").hide();
-    $("#codeBox").hide();
+    // $("#codeBox").hide();
     (function ($) {
     $("#signUpBtn").click(function(event){
          phoneNum = $("#phoneNumber").val();
