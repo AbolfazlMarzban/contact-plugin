@@ -305,46 +305,35 @@
         </div>
 
         <div id="ninethStep" style="display: flex; flex-direction: column;">
-        <label for="">آیا مدرک زبان دارید؟</label>
+        <label for="" style="text-align:right;">آیا مدرک زبان دارید؟</label>
         <div style="display: flex; align-items: end; flex-direction:column;">
                 <div style="display: flex; align-items:center;">
 
-                    <label for="haveLang" style="margin-right: 10px;">دارای مدرک پیش دانشگاهی هستم</label>
-                    <input type="radio" name="havePreUni" value="havePreUni">
+                    <label for="haveLang" style="margin-right: 10px;">بله</label>
+                    <input type="radio" name="haveLang" value="haveLang">
                     <br>
                 </div>
                 <div style="display: flex; align-items:center;">
-                    <label for="nothavePreUni" style="margin-right: 10px;">مدرک پیش دانشگاهی ندارم</label>
-                    <input type="radio" name="nothavePreUni" value="nothavePreUni">
+                    <label for="nothaveLang" style="margin-right: 10px;">خیر</label>
+                    <input type="radio" name="nothaveLang" value="nothaveLang">
                     <br>
                 </div>
             </div>
-
-            <label for="preUniCountry" style="text-align:right; margin-top: 10px;">کشور محل تحصیل</label>
-            <input type="text" name="preUniCountry" id="preUniCountry">
-
-            <label for="preUniName" style="text-align:right; margin-top: 10px;">نام مدرسه</label>
-            <input type="text" name="preUniName" id="preUniName">
+            <p style="text-align:right; margin-top: 10px;">اگر بله</p>
 
 
-            <label for="preUniName" style="text-align:right; margin-top: 10px;">نام شما در زمان تحصیل</label>
-            <input type="text" name="preUniName" id="preUniName" placeholder=" در صورت تغییر نام پر شود">
+            <label for="langDeg">نوع مدرک</label>
+            <input type="text" name="langDeg" id="langDeg">
 
-            <label for="preUniStart" style="text-align:right; margin-top: 10px">تاریخ شروع تحصیل به میلادی</label>
-            <input type="date" name="preUniStart" id="preUniStart" style="text-align:right;">
 
-            <label for="preUniEnd" style="text-align:right; margin-top: 10px">تاریخ فارغ التحصیلی به میلادی</label>
-            <input type="date" name="preUniEnd" id="preUniEnd" style="text-align:right;">
+            <label for="langScore">نمره</label>
+            <input type="text" name="langScore" id="langScore">
 
-            <div style="margin-top: 10px;">
-                <button id="next">بعدی</button>
-                <button id="next">قبلی</button>
 
-            </div>
+                    <button type="submit">ارسال اطلاعات</button>
 
         </div>
 
-        <!-- <button type="submit">Submit</button> -->
     </form>
 
     <!-- <?php endif; ?> -->
