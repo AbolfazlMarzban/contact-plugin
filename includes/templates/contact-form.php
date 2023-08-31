@@ -222,6 +222,9 @@
             <label for="" style="margin-top: 10px; text-align: right;">اطلاعات محل تحصیل</label>
 
 
+            <label for="schoolCountry" style="text-align:right; margin-top: 10px;">کشور محل تحصیل</label>
+            <input type="text" name="schoolCountry" id="schoolCountry">
+
             <label for="schoolName" style="text-align:right; margin-top: 10px;">نام مدرسه</label>
             <input type="text" name="schoolName" id="schoolName">
             
