@@ -180,7 +180,21 @@
 
             </div>
         </div>
+        <div id="fifthStep" style="display: flex; flex-direction: column;">
+        <label for="bachelorplace" style="text-align:right; margin-top: 10px">کشور محل تحصیل لیسانس</label>
+        <input type="text" name="bachelorplace" id="bachelorplace">
 
+        <label for="bacheloraddress" style="text-align:right; margin-top: 10px">آدرس محل دانشگاه</label>
+        <textarea name="bacheloraddress" id="bacheloraddress" cols="30" rows="10"></textarea>
+
+        <label for="bachelorstart" style="text-align:right; margin-top: 10px">تاریخ شروع تحصیل به میلادی</label>
+        <input type="date" name="bachelorstart" id="bachelorstart" style="text-align:right;">
+
+        <label for="bachelorend" style="text-align:right; margin-top: 10px">تاریخ فارغ التحصیلی به میلادی</label>
+        <input type="date" name="bachelorend" id="bachelorend" style="text-align:right;">
+
+
+        </div>
         <!-- <button type="submit">Submit</button> -->
     </form>
 
