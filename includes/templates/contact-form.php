@@ -204,7 +204,7 @@
 
         </div>
         <div id="sixthStep" style="display: flex; flex-direction: column;">
-        <div style="display: flex; align-items: end; flex-direction:column;">
+            <div style="display: flex; align-items: end; flex-direction:column;">
                 <div style="display: flex; align-items:center;">
 
                     <label for="havePreUni" style="margin-right: 10px;">دارای مدرک پیش دانشگاهی هستم</label>
@@ -228,7 +228,7 @@
             <label for="schoolName" style="text-align:right; margin-top: 10px;">نام مدرسه</label>
             <input type="text" name="schoolName" id="schoolName">
 
-            
+
             <label for="eduName" style="text-align:right; margin-top: 10px;">نام شما در زمان تحصیل</label>
             <input type="text" name="eduName" id="eduName" placeholder=" در صورت تغییر نام پر شود">
 
@@ -237,7 +237,7 @@
 
             <label for="highScend" style="text-align:right; margin-top: 10px">تاریخ فارغ التحصیلی به میلادی</label>
             <input type="date" name="highScend" id="highScend" style="text-align:right;">
-            
+
             <div style="margin-top: 10px;">
                 <button id="next">بعدی</button>
                 <button id="next">قبلی</button>
@@ -257,7 +257,7 @@
             <label for="preUniName" style="text-align:right; margin-top: 10px;">نام مدرسه</label>
             <input type="text" name="preUniName" id="preUniName">
 
-            
+
             <label for="preUniName" style="text-align:right; margin-top: 10px;">نام شما در زمان تحصیل</label>
             <input type="text" name="preUniName" id="preUniName" placeholder=" در صورت تغییر نام پر شود">
 
@@ -266,7 +266,76 @@
 
             <label for="preUniEnd" style="text-align:right; margin-top: 10px">تاریخ فارغ التحصیلی به میلادی</label>
             <input type="date" name="preUniEnd" id="preUniEnd" style="text-align:right;">
-            
+
+            <div style="margin-top: 10px;">
+                <button id="next">بعدی</button>
+                <button id="next">قبلی</button>
+
+            </div>
+
+        </div>
+
+        <div id="eighthStep" style="display: flex; flex-direction: column;">
+
+            <label for="" style="margin-top: 10px; text-align: right;">اطلاعات مقطع راهنمایی</label>
+
+
+            <label for="middleScCountry" style="text-align:right; margin-top: 10px;">کشور محل تحصیل</label>
+            <input type="text" name="middleScCountry" id="middleScCountry">
+
+            <label for="middleScSchoolName" style="text-align:right; margin-top: 10px;">نام مدرسه</label>
+            <input type="text" name="middleScSchoolName" id="middleScSchoolName">
+
+
+            <label for="middleScName" style="text-align:right; margin-top: 10px;">نام شما در زمان تحصیل</label>
+            <input type="text" name="middleScName" id="middleScName" placeholder=" در صورت تغییر نام پر شود">
+
+            <label for="middleScStart" style="text-align:right; margin-top: 10px">تاریخ شروع تحصیل به میلادی</label>
+            <input type="date" name="middleScStart" id="middleScStart" style="text-align:right;">
+
+            <label for="middleScEnd" style="text-align:right; margin-top: 10px">تاریخ فارغ التحصیلی به میلادی</label>
+            <input type="date" name="middleScEnd" id="middleScEnd" style="text-align:right;">
+
+            <div style="margin-top: 10px;">
+                <button id="next">بعدی</button>
+                <button id="next">قبلی</button>
+
+            </div>
+
+        </div>
+
+        <div id="ninethStep" style="display: flex; flex-direction: column;">
+        <label for="">آیا مدرک زبان دارید؟</label>
+        <div style="display: flex; align-items: end; flex-direction:column;">
+                <div style="display: flex; align-items:center;">
+
+                    <label for="haveLang" style="margin-right: 10px;">دارای مدرک پیش دانشگاهی هستم</label>
+                    <input type="radio" name="havePreUni" value="havePreUni">
+                    <br>
+                </div>
+                <div style="display: flex; align-items:center;">
+                    <label for="nothavePreUni" style="margin-right: 10px;">مدرک پیش دانشگاهی ندارم</label>
+                    <input type="radio" name="nothavePreUni" value="nothavePreUni">
+                    <br>
+                </div>
+            </div>
+
+            <label for="preUniCountry" style="text-align:right; margin-top: 10px;">کشور محل تحصیل</label>
+            <input type="text" name="preUniCountry" id="preUniCountry">
+
+            <label for="preUniName" style="text-align:right; margin-top: 10px;">نام مدرسه</label>
+            <input type="text" name="preUniName" id="preUniName">
+
+
+            <label for="preUniName" style="text-align:right; margin-top: 10px;">نام شما در زمان تحصیل</label>
+            <input type="text" name="preUniName" id="preUniName" placeholder=" در صورت تغییر نام پر شود">
+
+            <label for="preUniStart" style="text-align:right; margin-top: 10px">تاریخ شروع تحصیل به میلادی</label>
+            <input type="date" name="preUniStart" id="preUniStart" style="text-align:right;">
+
+            <label for="preUniEnd" style="text-align:right; margin-top: 10px">تاریخ فارغ التحصیلی به میلادی</label>
+            <input type="date" name="preUniEnd" id="preUniEnd" style="text-align:right;">
+
             <div style="margin-top: 10px;">
                 <button id="next">بعدی</button>
                 <button id="next">قبلی</button>
