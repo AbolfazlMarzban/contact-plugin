@@ -14,14 +14,14 @@ add_action('rest_api_init', 'create_sms_endpoint');
 
 add_action('init', 'create_submission_page');
 
-add_action('add_meta_boxes', 'create_meta_box');
+// add_action('add_meta_boxes', 'create_meta_box');
 
-add_filter('manage_submission_posts_columns', 'custom_submission_columns');
+// add_filter('manage_submission_posts_columns', 'custom_submission_columns');
 
-add_action('manage_submission_posts_custom_column', 'fill_submission_columns', 10, 2);
+// add_action('manage_submission_posts_custom_column', 'fill_submission_columns', 10, 2);
 
 
-add_action('admin_init', 'setup_search');
+// add_action('admin_init', 'setup_search');
 
 
 add_action('wp_enqueue_scripts', 'enqueue_custom_scripts');
@@ -153,6 +153,9 @@ function get_form_data($data)
     $params = $data->get_params();
 
 
+    $phone_number = $params["phone"];
+    $form = $params["form"];
+
     $field_name = sanitize_text_field( $params['name']);
     $field_email = sanitize_email( $params['email']);
     $field_address = sanitize_text_field( $params['address']);
@@ -191,7 +194,7 @@ function get_form_data($data)
 
 
     $postarr = [
-        'post_title' => $field_name,
+        'post_title' => $phone_number,
         'post_type' => 'submission',
         'post_status' => 'publish'
     ];
@@ -219,7 +222,7 @@ function get_form_data($data)
 
 
 
-    wp_mail($recipient_email, $subject, $message, $headers);
+    // wp_mail($recipient_email, $subject, $message, $headers);
 
     $success_message = 'The Message was Sent Successfully!';
     if(get_plugin_options('contact_plugin_message')){
@@ -227,7 +230,7 @@ function get_form_data($data)
         $success_message = str_replace('{name}', $params['name'], $success_message);
     }
 
-    return new WP_Rest_Response($success_message, 200);
+    return new WP_Rest_Response($params, 200);
 
 }
 
@@ -237,18 +240,18 @@ function create_submission_page()
         'public' => true,
         'has_archive' => true,
         'menu_position' => 99,
-        'publicly_queryable' => false,
+        // 'publicly_queryable' => false,
         'labels' => [
             'name' => 'فرم ها',
             'singular_name' => 'Submission',
             'edit_item' => 'view form'
         ],
-        'supports' => ['title', 'editor', 'custom-fields'],
+        'supports' => ['title', 'custom-fields'],
         'capability_type' => 'post',
-        'capabilities' => array(
-            'create_posts' => false
-        ),
-        'map_meta_cap' => true
+        // 'capabilities' => array(
+        //     'create_posts' => false
+        // ),
+        // 'map_meta_cap' => true
     ];
     // 'capabilities'=> ['create_posts' => 'do_not_allow']
 
@@ -267,20 +270,20 @@ function display_submission()
     unset($post_metas['_edit_lock']);
 
 
-    // foreach($post_metas as $key => $value){
-    //     echo '<strong>' . ucfirst($key) . '</strong>' . ':' . $value[0] . '<br><br>';
-    // }
+    foreach($post_metas as $key => $value){
+        echo '<strong>' . ucfirst($key) . '</strong>' . ':' . $value[0] . '<br><br>';
+    }
 
 
-    // echo 'Name :' . get_post_meta( get_the_ID(), 'name', true);
+    echo 'Name :' . get_post_meta( get_the_ID(), 'name', true);
 
-    echo '<ul>';
-        echo '<li><strong>Name</strong>:<br>' . esc_html( get_post_meta( get_the_ID(), 'name', true) ) . '</li>';
-        echo '<li><strong>Email</strong>:<br>' . esc_html( get_post_meta( get_the_ID(), 'email', true) ) . '</li>';
-        echo '<li><strong>Phone</strong>:<br>' . esc_html( get_post_meta( get_the_ID(), 'phone', true) ) . '</li>';
-        echo '<li><strong>Address</strong>:<br>' . esc_html( get_post_meta( get_the_ID(), 'address', true) ) . '</li>';
-        echo '<li><strong>Message</strong>:<br>' . esc_html( get_post_meta( get_the_ID(), 'message', true) ) . '</li>';
+    // echo '<ul>';
+    //     echo '<li><strong>Name</strong>:<br>' . esc_html( get_post_meta( get_the_ID(), 'name', true) ) . '</li>';
+    //     echo '<li><strong>Email</strong>:<br>' . esc_html( get_post_meta( get_the_ID(), 'email', true) ) . '</li>';
+    //     echo '<li><strong>Phone</strong>:<br>' . esc_html( get_post_meta( get_the_ID(), 'phone', true) ) . '</li>';
+    //     echo '<li><strong>Address</strong>:<br>' . esc_html( get_post_meta( get_the_ID(), 'address', true) ) . '</li>';
+    //     echo '<li><strong>Message</strong>:<br>' . esc_html( get_post_meta( get_the_ID(), 'message', true) ) . '</li>';
 
-    echo '</ul>';
+    // echo '</ul>';
 
 }

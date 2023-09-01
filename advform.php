@@ -273,16 +273,21 @@ class advForms {
 
 
      (function ($) {
-    $("#contact-form").submit(function(event){
+    $("#advForm").submit(function(event){
             event.preventDefault();
             var form = $(this);
-            console.log('form', form)
+            console.log('form', form.serialize());
             $.ajax({
                 type: "POST",
                 url: "<?php echo get_rest_url(null, 'v1/contact-form/submit'); ?>",
-                data: form.serialize(),
+                // data: {
+                //     "phone": phone,
+                //     "form" : form.serialize()
+                // },
+                data:form.serialize(),
                 success: function(res)
-                {
+                {   
+                    console.log('res', res)                 
                     form.hide();
                     $("#form_success").html(res).fadeIn();
                 },
