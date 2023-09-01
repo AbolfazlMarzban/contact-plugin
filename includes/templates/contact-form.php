@@ -27,7 +27,7 @@
 
 
             <label for="passport Picture">Passport Picture</label>
-            <input type="file" name="passport">
+            <input type="file" id="passport" name="passport">
 
             <p style="color: red; text-align:right">توجه: در صورت تغییر اسم و فامیل لطفا نام قبلی را درج فرمایید</p>
             <textarea name="changeName" id="changeName" cols="30" rows="10"
@@ -132,9 +132,9 @@
                 انگلیسی</label>
             <input type="text" name="livingPlace" id="livingPlace" style="margin-top: 10px;">
 
-
+<!-- 
             <label for="passport Picture" style="text-align: right; margin-top: 20px;">تصویر پاسپورت</label>
-            <input type="file" name="passport">
+            <input type="file" name="passport"> -->
 
 
             <label for="address" style="text-align: right; margin-top: 20px;">آدرس محل سکونت</label>

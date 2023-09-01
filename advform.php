@@ -40,10 +40,22 @@ class advForms {
     var otp = '';
     var phone = '';
     var phoneNum = '';
+    var passport = null;
+    var daneshNameh = null;
+    var rizNomarat = null;
     $("#advForm").hide();
     $("#codeBox").hide();
 
     (function($){
+        $("#passport").change(function(event){
+            passport = event.target.files[0]
+        });
+        $("#daneshNameh").change(function name(event) {
+            daneshNameh =event.target.files[0]
+        });
+        $("#rizNomarat").change(function name(event) {
+            rizNomarat =event.target.files[0]
+        });
         $("#firstNext").click(function(event){
             event.preventDefault();
            $("#firstStep").hide();
@@ -224,9 +236,7 @@ class advForms {
            $("#eighthStep").hide();
            $("#ninethStep").hide();
         });
-    })(jQuery);
-    (function ($) {
-    $("#signUpBtn").click(function(event){
+        $("#signUpBtn").click(function(event){
          phoneNum = $("#phoneNumber").val();
         $.ajax({
                 type: "POST",
@@ -245,9 +255,6 @@ class advForms {
                 },
             })
     });
-    })(jQuery);
-    
-    (function ($) {
     $("#submitCode").click(function(event){
         var code = $("#sentCode").val();
         if(code == otp){
@@ -269,33 +276,40 @@ class advForms {
             $("#signupForm").fadeIn();
         }
     });
-    })(jQuery);
-
-
-     (function ($) {
     $("#advForm").submit(function(event){
             event.preventDefault();
-            var form = $(this);
-            console.log('form', form.serialize());
-            $.ajax({
-                type: "POST",
-                url: "<?php echo get_rest_url(null, 'v1/contact-form/submit'); ?>",
-                // data: {
-                //     "phone": phone,
-                //     "form" : form.serialize()
-                // },
-                data:form.serialize(),
-                success: function(res)
-                {   
-                    console.log('res', res)                 
-                    form.hide();
-                    $("#form_success").html(res).fadeIn();
-                },
-                error: function()
-                {
-                    $("#form_error").html("There was an error submitting your form!").fadeIn();
-                }
-            }) 
+            var form = new FormData(event.target);
+            if(passport){
+                form.append('passport_file', passport)
+            }
+            if(daneshNameh){
+                form.append('daneshNameh_file', daneshNameh);
+            }
+            if(rizNomarat){
+                form.append('rizNomarat_file', rizNomarat);
+            }
+            form.append('phoneNumber', phone);
+            var data =Object.fromEntries(form.entries())
+            console.log('data', data)
+            // $.ajax({
+            //     type: "POST",
+            //     url: "<?php echo get_rest_url(null, 'v1/contact-form/submit'); ?>",
+            //     data: {
+            //         "phone": phone,
+            //         "form" : form.serialize()
+            //     },
+            //     // data:form.serialize(),
+            //     success: function(res)
+            //     {   
+            //         console.log('res', res)                 
+            //         form.hide();
+            //         $("#form_success").html(res).fadeIn();
+            //     },
+            //     error: function()
+            //     {
+            //         $("#form_error").html("There was an error submitting your form!").fadeIn();
+            //     }
+            // }) 
         });
     })(jQuery);
         </script>

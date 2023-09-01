@@ -129,20 +129,20 @@ function get_sms_number($data)
     $params = $data->get_params();
     $otp= rand(1000, 9999);
   
-    try{
-        $username = '09124246135';
-        $password = '#31E4';
-        $api = new MelipayamakApi($username,$password);
-        $sms = $api->sms();
-        $to = $params["phoneNum"];
-        $from = '50004001246135';
-        $text = $otp;
-        $response = $sms->send($to,$from,$text);
-        $json = json_decode($response);
-        // echo $json->Value; //RecId or Error Number 
-    }catch(Exception $e){
-        echo $e->getMessage();
-    }
+    // try{
+    //     $username = '09124246135';
+    //     $password = '#31E4';
+    //     $api = new MelipayamakApi($username,$password);
+    //     $sms = $api->sms();
+    //     $to = $params["phoneNum"];
+    //     $from = '50004001246135';
+    //     $text = $otp;
+    //     $response = $sms->send($to,$from,$text);
+    //     $json = json_decode($response);
+    //     // echo $json->Value; //RecId or Error Number 
+    // }catch(Exception $e){
+    //     echo $e->getMessage();
+    // }
 
     return $params["nonce"] . $otp;
 
@@ -156,13 +156,13 @@ function get_form_data($data)
     $phone_number = $params["phone"];
     $form = $params["form"];
 
-    $field_name = sanitize_text_field( $params['name']);
-    $field_email = sanitize_email( $params['email']);
-    $field_address = sanitize_text_field( $params['address']);
-    $field_phone = sanitize_text_field( $params['phone']);
-    $field_message = sanitize_textarea_field( $params['message']);
+    // $field_name = sanitize_text_field( $params['name']);
+    // $field_email = sanitize_email( $params['email']);
+    // $field_address = sanitize_text_field( $params['address']);
+    // $field_phone = sanitize_text_field( $params['phone']);
+    // $field_message = sanitize_textarea_field( $params['message']);
 
-    $recipient_email = get_plugin_options('contact_plugin_recipients');
+    // $recipient_email = get_plugin_options('contact_plugin_recipients');
 
    
 
@@ -175,22 +175,22 @@ function get_form_data($data)
 
 
     //send the email message
-    $headers = [];
+    // $headers = [];
 
-    $sender = get_bloginfo('admin-email');
-    $sender_name = get_bloginfo('name');
-    $headers[] = "From: {$sender_name} - {$sender}";
-    $headers[] = "Reply-to: <{$field_name}> <{$field_email}>";
-    $headers[] = "Content-Type: text/html";
-    $subject = "New contact form plugin entry from {$field_name}";
-    $message = '';
-    $message .= "Message has been sent from {$field_name} <br /> <br />";
+    // $sender = get_bloginfo('admin-email');
+    // $sender_name = get_bloginfo('name');
+    // $headers[] = "From: {$sender_name} - {$sender}";
+    // $headers[] = "Reply-to: <{$field_name}> <{$field_email}>";
+    // $headers[] = "Content-Type: text/html";
+    // $subject = "New contact form plugin entry from {$field_name}";
+    // $message = '';
+    // $message .= "Message has been sent from {$field_name} <br /> <br />";
 
 
-    if(!$recipient_email)
-    {
-        $recipient_email = $sender;
-    }
+    // if(!$recipient_email)
+    // {
+    //     $recipient_email = $sender;
+    // }
 
 
     $postarr = [
@@ -202,7 +202,7 @@ function get_form_data($data)
     $post_id = wp_insert_post($postarr);
 
 
-    foreach($params as $label => $value)
+    foreach($form as $label => $value)
     {
         switch($label)
         {
@@ -225,10 +225,10 @@ function get_form_data($data)
     // wp_mail($recipient_email, $subject, $message, $headers);
 
     $success_message = 'The Message was Sent Successfully!';
-    if(get_plugin_options('contact_plugin_message')){
-        $success_message = get_plugin_options('contact_plugin_message');
-        $success_message = str_replace('{name}', $params['name'], $success_message);
-    }
+    // if(get_plugin_options('contact_plugin_message')){
+    //     $success_message = get_plugin_options('contact_plugin_message');
+    //     $success_message = str_replace('{name}', $params['name'], $success_message);
+    // }
 
     return new WP_Rest_Response($params, 200);
 
