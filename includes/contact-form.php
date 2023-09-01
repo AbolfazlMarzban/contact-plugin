@@ -214,12 +214,10 @@ function get_form_data($data)
     // {
     //     switch($label)
     //     {
-    //         case 'message':
+    //         case 'passport_file':
     //             $value = sanitize_textarea_field($value);
     //         break;
-    //         case 'email':
-    //             $value = sanitize_email($value);
-    //         break;
+            
     //         default:
     //             $value = sanitize_text_field($value);
     //     }
