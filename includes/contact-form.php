@@ -113,7 +113,7 @@ function create_rest_endpoint()
 {
     register_rest_route('v1/contact-form', 'submit', array(
         'methods' => 'POST',
-        'callback' => 'get_form_data_test'
+        'callback' => 'get_form_data'
     ));
 }
 
@@ -123,7 +123,8 @@ function get_form_data_test($data)
     // $text = $data->get_params();
     // $params = json_decode($text);
     $params = $data->get_params();
-    return new WP_Rest_Response($params, 200);
+    $object = json_decode($params["data"]);
+    return new WP_Rest_Response($object, 200);
 }
 function create_sms_endpoint()
 {
@@ -158,9 +159,8 @@ function get_sms_number($data)
 
 function get_form_data($data)
 {
-    // $params = $data->get_params();
-    $params = json_decode($data);
-//    return $params;
+    $req = $data->get_params();
+    $params = json_decode($req["data"], true);
 
     $phone_number = $params["phoneNumber"];
 
@@ -174,10 +174,10 @@ function get_form_data($data)
 
    
 
-    if(!wp_verify_nonce($params['_wpnonce'], 'wp_rest'))
-    {
-        return new WP_Rest_Response('Message not Sent!', 422);
-    }
+    // if(!wp_verify_nonce($params['_wpnonce'], 'wp_rest'))
+    // {
+    //     return new WP_Rest_Response('Message not Sent!', 422);
+    // }
     unset($params["_wpnonce"]);
     unset($params["_wp_http_referer"]);
 

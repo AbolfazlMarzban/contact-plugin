@@ -290,12 +290,12 @@ class advForms {
             }
             form.append('phoneNumber', phone);
             var sendData =Object.fromEntries(form.entries())
-            console.log('sendData', JSON.stringify(sendData))
+            console.log('sendData', JSON.stringify(sendData),typeof(JSON.stringify(sendData)))
             $.ajax({
                 type: "POST",
                 url: "<?php echo get_rest_url(null, 'v1/contact-form/submit'); ?>",
                 data: {"data": JSON.stringify(sendData)},
-                processData: false,
+                // data: form,
                 success: function(res)
                 {   
                     console.log('res', res , typeof(res))                 
