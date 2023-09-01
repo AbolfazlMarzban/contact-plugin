@@ -289,27 +289,25 @@ class advForms {
                 form.append('rizNomarat_file', rizNomarat);
             }
             form.append('phoneNumber', phone);
-            var data =Object.fromEntries(form.entries())
-            console.log('data', data)
-            // $.ajax({
-            //     type: "POST",
-            //     url: "<?php echo get_rest_url(null, 'v1/contact-form/submit'); ?>",
-            //     data: {
-            //         "phone": phone,
-            //         "form" : form.serialize()
-            //     },
-            //     // data:form.serialize(),
-            //     success: function(res)
-            //     {   
-            //         console.log('res', res)                 
-            //         form.hide();
-            //         $("#form_success").html(res).fadeIn();
-            //     },
-            //     error: function()
-            //     {
-            //         $("#form_error").html("There was an error submitting your form!").fadeIn();
-            //     }
-            // }) 
+            var sendData =Object.fromEntries(form.entries())
+            console.log('sendData', JSON.stringify(sendData))
+            $.ajax({
+                type: "POST",
+                url: "<?php echo get_rest_url(null, 'v1/contact-form/submit'); ?>",
+                data: {"data": JSON.stringify(sendData)},
+                processData: false,
+                success: function(res)
+                {   
+                    console.log('res', res , typeof(res))                 
+                    // form.hide();
+                    $("#form_success").html(res).fadeIn();
+                },
+                error: function()
+                {
+                    console.log('poop')
+                    $("#form_error").html("There was an error submitting your form!").fadeIn();
+                }
+            }) 
         });
     })(jQuery);
         </script>

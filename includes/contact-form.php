@@ -113,10 +113,18 @@ function create_rest_endpoint()
 {
     register_rest_route('v1/contact-form', 'submit', array(
         'methods' => 'POST',
-        'callback' => 'get_form_data'
+        'callback' => 'get_form_data_test'
     ));
 }
 
+
+function get_form_data_test($data)
+{
+    // $text = $data->get_params();
+    // $params = json_decode($text);
+    $params = $data->get_params();
+    return new WP_Rest_Response($params, 200);
+}
 function create_sms_endpoint()
 {
     register_rest_route('v1/contact-form-sms', 'submit', array(
@@ -150,11 +158,11 @@ function get_sms_number($data)
 
 function get_form_data($data)
 {
-    $params = $data->get_params();
+    // $params = $data->get_params();
+    $params = json_decode($data);
+//    return $params;
 
-
-    $phone_number = $params["phone"];
-    $form = $params["form"];
+    $phone_number = $params["phoneNumber"];
 
     // $field_name = sanitize_text_field( $params['name']);
     // $field_email = sanitize_email( $params['email']);
@@ -202,23 +210,23 @@ function get_form_data($data)
     $post_id = wp_insert_post($postarr);
 
 
-    foreach($form as $label => $value)
-    {
-        switch($label)
-        {
-            case 'message':
-                $value = sanitize_textarea_field($value);
-            break;
-            case 'email':
-                $value = sanitize_email($value);
-            break;
-            default:
-                $value = sanitize_text_field($value);
-        }
-        add_post_meta($post_id, sanitize_text_field($label), $value);
-        $message .= sanitize_text_field(ucfirst($label)) . ':' . $value . "<br>";
+    // foreach($form as $label => $value)
+    // {
+    //     switch($label)
+    //     {
+    //         case 'message':
+    //             $value = sanitize_textarea_field($value);
+    //         break;
+    //         case 'email':
+    //             $value = sanitize_email($value);
+    //         break;
+    //         default:
+    //             $value = sanitize_text_field($value);
+    //     }
+    //     add_post_meta($post_id, sanitize_text_field($label), $value);
+    //     $message .= sanitize_text_field(ucfirst($label)) . ':' . $value . "<br>";
 
-    }
+    // }
 
 
 
@@ -230,7 +238,7 @@ function get_form_data($data)
     //     $success_message = str_replace('{name}', $params['name'], $success_message);
     // }
 
-    return new WP_Rest_Response($params, 200);
+    return new WP_Rest_Response($success_message, 200);
 
 }
 
