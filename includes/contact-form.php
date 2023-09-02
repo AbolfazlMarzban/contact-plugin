@@ -117,15 +117,6 @@ function create_rest_endpoint()
     ));
 }
 
-
-function get_form_data_test($data)
-{
-    // $text = $data->get_params();
-    // $params = json_decode($text);
-    $params = $data->get_params();
-    $object = json_decode($params["data"]);
-    return new WP_Rest_Response($object, 200);
-}
 function create_sms_endpoint()
 {
     register_rest_route('v1/contact-form-sms', 'submit', array(
@@ -159,9 +150,11 @@ function get_sms_number($data)
 
 function get_form_data($data)
 {
-    $req = $data->get_params();
-    $params = json_decode($req["data"], true);
+    $files = $data->get_file_params();
+    $params = $data->get_params();
+    // $params = json_decode($req["data"], true);
 
+    // return $_FILES["passport_file"]['passport_file'];s
     $phone_number = $params["phoneNumber"];
 
     // $field_name = sanitize_text_field( $params['name']);
@@ -209,22 +202,74 @@ function get_form_data($data)
 
     $post_id = wp_insert_post($postarr);
 
+    $upload_dir = wp_upload_dir();
+    foreach($params as $label => $value)
+    {
+        switch($label)
+        {   
+            default:
+                $value = sanitize_text_field($value);
+        }
+        add_post_meta($post_id, sanitize_text_field($label), $value);
+        // $message .= sanitize_text_field(ucfirst($label)) . ':' . $value . "<br>";
 
-    // foreach($form as $label => $value)
-    // {
-    //     switch($label)
-    //     {
-    //         case 'passport_file':
-    //             $value = sanitize_textarea_field($value);
-    //         break;
+    }
+    foreach($files as $label => $value)
+    {
+        switch($label)
+        {   
+            case 'passport_file':
+                if ( isset( $files[ $label ] ) ) {
+                    if(strlen($files[$label]['name']) > 0 )
+                    $path = $upload_dir[ 'path' ] . '/' . basename( $files[ $label ][ 'name' ] );
             
-    //         default:
-    //             $value = sanitize_text_field($value);
-    //     }
-    //     add_post_meta($post_id, sanitize_text_field($label), $value);
-    //     $message .= sanitize_text_field(ucfirst($label)) . ':' . $value . "<br>";
+                    if( move_uploaded_file( $files[ $label ][ 'tmp_name' ], $path ) ) {
+                        $url =  $upload_dir[ 'url' ] . '/' . basename( $files[ $label ][ 'name' ] );
+                    }
+                    update_post_meta($post_id, sanitize_text_field($label), $url);
+                }
+            break;
+            case 'daneshNameh_file':
+                if ( isset( $files[ $label ] ) ) {
+                    if(strlen($files[$label]['name']) > 0 )
+                    $path = $upload_dir[ 'path' ] . '/' . basename( $files[ $label ][ 'name' ] );
+            
+                    if( move_uploaded_file( $files[ $label ][ 'tmp_name' ], $path ) ) {
+                        $url =  $upload_dir[ 'url' ] . '/' . basename( $files[ $label ][ 'name' ] );
+                    }
+                    update_post_meta($post_id, sanitize_text_field($label), $url);
+                }
+            break;
+            case 'daneshNameh_file':
+                if ( isset( $files[ $label ] ) ) {
+                    if(strlen($files[$label]['name']) > 0 )
+                    $path = $upload_dir[ 'path' ] . '/' . basename( $files[ $label ][ 'name' ] );
+            
+                    if( move_uploaded_file( $files[ $label ][ 'tmp_name' ], $path ) ) {
+                        $url =  $upload_dir[ 'url' ] . '/' . basename( $files[ $label ][ 'name' ] );
+                    }
+                    update_post_meta($post_id, sanitize_text_field($label), $url);
+                }
+            break;
+            case 'rizNomarat_file':
+                if ( isset( $files[ $label ] ) ) {
+                    if(strlen($files[$label]['name']) > 0 )
+                    $path = $upload_dir[ 'path' ] . '/' . basename( $files[ $label ][ 'name' ] );
+            
+                    if( move_uploaded_file( $files[ $label ][ 'tmp_name' ], $path ) ) {
+                        $url =  $upload_dir[ 'url' ] . '/' . basename( $files[ $label ][ 'name' ] );
+                    }
+                    update_post_meta($post_id, sanitize_text_field($label), $url);
+                }
+                break;
+            default:
+                $value = sanitize_text_field($value);
+        }
+  
+        // add_post_meta($post_id, sanitize_text_field($label), $value);
+        // $message .= sanitize_text_field(ucfirst($label)) . ':' . $value . "<br>";
 
-    // }
+    }
 
 
 

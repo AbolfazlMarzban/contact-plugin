@@ -290,16 +290,20 @@ class advForms {
             }
             form.append('phoneNumber', phone);
             var sendData =Object.fromEntries(form.entries())
-            console.log('sendData', JSON.stringify(sendData),typeof(JSON.stringify(sendData)))
+            console.log('form', form)
+            console.log('sendData', sendData);
             $.ajax({
                 type: "POST",
                 url: "<?php echo get_rest_url(null, 'v1/contact-form/submit'); ?>",
-                data: {"data": JSON.stringify(sendData)},
-                // data: form,
+                // data: {"data": JSON.stringify(sendData)},
+                data: form,
+                contentType: false,
+				enctype: 'multipart/form-data',
+				processData: false,
                 success: function(res)
                 {   
                     console.log('res', res , typeof(res))                 
-                    // form.hide();
+                    $("#advForm").hide();
                     $("#form_success").html(res).fadeIn();
                 },
                 error: function()

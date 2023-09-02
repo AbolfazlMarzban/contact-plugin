@@ -18,7 +18,10 @@
 
         <?php wp_nonce_field('wp_rest'); ?>
         <div id="firstStep" style="display: flex; flex-direction: column;">
-            <label for="First Name">First Name</label>
+        <div>
+        <label for="First Name">First Name</label>
+        <span id="supportName">درخواست پشتیبانی تلفنی</span>
+        </div>
             <input type="text" name="firstName">
 
 
@@ -30,9 +33,12 @@
             <input type="file" id="passport" name="passport">
 
             <p style="color: red; text-align:right">توجه: در صورت تغییر اسم و فامیل لطفا نام قبلی را درج فرمایید</p>
-            <textarea name="changeName" id="changeName" cols="30" rows="10"
+            <textarea name="نام تغییر یافته" id="changeName" cols="30" rows="10"
                 placeholder="در این کادر نام قبلی خود را به همراهتوضیحات مربوط به این تغییر نام درج فرمایید."
                 style="text-align: right;"></textarea>
+
+            <label for="" style="text-align: right;margin-top:20px;">ویدیوی راهنمایی</label>
+            <video style="margin-top: 20px;" src="<?php echo get_plugin_options('contact_plugin_guide1'); ?>" controls></video>
             <div style="margin-top: 10px;">
                 <button id="firstNext">بعدی</button>
             </div>
@@ -46,12 +52,12 @@
                 <div style="display: flex; align-items:center;">
 
                     <label for="مرد" style="margin-right: 10px;">مرد</label>
-                    <input type="radio" name="sex" value="مرد">
+                    <input type="radio" name="جنسیت" value="مرد">
                     <br>
                 </div>
                 <div style="display: flex; align-items:center;">
                     <label for="زن" style="margin-right: 10px;">زن</label>
-                    <input type="radio" name="sex" value="زن">
+                    <input type="radio" name="جنسیت" value="زن">
 
                     <br>
                 </div>
@@ -63,18 +69,18 @@
                 <div style="display: flex; align-items:center;">
 
                     <label for="single" style="margin-right: 10px;">مجرد (هیچ گاه ازدواج نکرده اید)</label>
-                    <input type="radio" name="single" value="single">
+                    <input type="radio" name="وضعیت تأهل" value="single">
                     <br>
                 </div>
                 <div style="display: flex; align-items:center;">
                     <label for="married" style="margin-right: 10px;">متأهل</label>
-                    <input type="radio" name="married" value="married">
+                    <input type="radio" name="وضعیت تأهل"" value="married">
 
                     <br>
                 </div>
                 <div style="display: flex; align-items:center;">
                     <label for="notMarried" style="margin-right: 10px;">از همسر خود جدا شده اید</label>
-                    <input type="radio" name="notMarried" value="notMarried">
+                    <input type="radio" name="وضعیت تأهل" value="divorced">
 
                     <br>
                 </div>
@@ -82,7 +88,7 @@
 
 
             <label for="birthDate" style="text-align: right; margin-top:20px;">تاریخ تولد میلادی</label>
-            <input type="date" name="birthDate" id="birthDate" style="text-align: end;">
+            <input type="date" name="تاریخ تولد" id="birthDate" style="text-align: end;">
 
             <label for="imigrationIntent" style="text-align: right; margin-top: 20px;">آیا تا به حال برای مهاجرت به آمریکا
                 از مسیر دیگری اقدام کرده اید؟</label>
@@ -90,16 +96,20 @@
                 <div style="display: flex; align-items:center;">
 
                     <label for="imigrationIntent" style="margin-right: 10px;">بله</label>
-                    <input type="radio" name="imigrationIntent" value="بله">
+                    <input type="radio" name="اقدام مهاجرت" value="بله">
                     <br>
                 </div>
                 <div style="display: flex; align-items:center;">
                     <label for="imigrationIntent" style="margin-right: 10px;">خیر</label>
-                    <input type="radio" name="imigrationIntent" value="خیر">
+                    <input type="radio" name="اقدام مهاجرت" value="خیر">
 
                     <br>
                 </div>
             </div>
+
+            
+            <label for="" style="text-align: right;margin-top:20px;">ویدیوی راهنمایی</label>
+            <video style="margin-top: 20px;" src="<?php echo get_plugin_options('contact_plugin_guide2'); ?>" controls></video>
 
 
             <div style="margin-top: 10px;">
@@ -116,13 +126,13 @@
                 <label for="">محل تولد</label>
                 <div style="display: flex; align-items:center;">
 
-                    <label for="birthPlace" style="margin-right: 10px;">ایران</label>
-                    <input type="radio" name="birthPlace" value="iran">
+                    <label for="محل تولد" style="margin-right: 10px;">ایران</label>
+                    <input type="radio" name="محل تولد" value="iran">
                     <br>
                 </div>
                 <div style="display: flex; align-items:center;">
-                    <input type="text" name="birthPlace" style="margin-right: 10px;">
-                    <label for="birthPlace" style="margin-right: 10px;">کشور دیگر</label>
+                    <input type="text" name="محل تولد" style="margin-right: 10px;">
+                    <label for="محل تولد" style="margin-right: 10px;">کشور دیگر</label>
                     <br>
                 </div>
             </div>
@@ -130,7 +140,7 @@
 
             <label for="livingPlace" style="text-align: right; margin-top: 20px;">کشور محل زندگی در حال حاضر به
                 انگلیسی</label>
-            <input type="text" name="livingPlace" id="livingPlace" style="margin-top: 10px;">
+            <input type="text" name="محل زندگی در حال حاضر" id="livingPlace" style="margin-top: 10px;">
 
 <!-- 
             <label for="passport Picture" style="text-align: right; margin-top: 20px;">تصویر پاسپورت</label>
@@ -138,7 +148,7 @@
 
 
             <label for="address" style="text-align: right; margin-top: 20px;">آدرس محل سکونت</label>
-            <textarea name="address" id="address" cols="30" rows="10" placeholder="Example
+            <textarea name="آدرس" id="address" cols="30" rows="10" placeholder="Example
                     No number
                     Street
                     City
@@ -147,8 +157,13 @@
 
 
             <label for="phone" style="text-align:right; margin-top: 20px;">شماره تماس</label>
-            <input type="tel" name="phone" id="phone" style="margin-top:10px;">
-            <input type="tel" name="phone" id="phone" style="margin-top:10px;">
+            <input type="tel" name="شماره تماس" id="phone" style="margin-top:10px;">
+            <input type="tel" name="شماره تماس" id="phone" style="margin-top:10px;">
+
+
+            
+            <label for="" style="text-align: right;margin-top:20px;">ویدیوی راهنمایی</label>
+            <video style="margin-top: 20px;" src="<?php echo get_plugin_options('contact_plugin_guide3'); ?>" controls></video>
 
             <div style="margin-top: 10px;">
                 <button id="thirdNext">بعدی</button>
@@ -160,7 +175,7 @@
 
         <div id="fourthStep" style="display: flex; flex-direction: column;">
             <label for="employmentRecords" style="text-align:right">اطلاعات سابقه کاری</label>
-            <textarea name="employmentRecords" id="employmentRecords" cols="30" rows="10"
+            <textarea name="اطلاعات سابقه کاری" id="employmentRecords" cols="30" rows="10"
                 style="text-align: right; margin-top: 10px;" placeholder="نام محل خدمت:
                             نام سوپروایزر:
                             کشور محل خدمت:
@@ -178,6 +193,10 @@
             <input type="file" name="rizNomarat" id="rizNomarat">
 
 
+            
+            <label for="" style="text-align: right;margin-top:20px;">ویدیوی راهنمایی</label>
+            <video style="margin-top: 20px;" src="<?php echo get_plugin_options('contact_plugin_guide4'); ?>" controls></video>
+
             <div style="margin-top: 10px;">
                 <button id="fourthNext">بعدی</button>
                 <button id="fourthPrev">قبلی</button>
@@ -186,16 +205,21 @@
         </div>
         <div id="fifthStep" style="display: flex; flex-direction: column;">
             <label for="bachelorplace" style="text-align:right; margin-top: 10px">کشور محل تحصیل لیسانس</label>
-            <input type="text" name="bachelorplace" id="bachelorplace">
+            <input type="text" name="محل تحصیل لیسانس" id="bachelorplace">
 
             <label for="bacheloraddress" style="text-align:right; margin-top: 10px">آدرس محل دانشگاه</label>
-            <textarea name="bacheloraddress" id="bacheloraddress" cols="30" rows="10"></textarea>
+            <textarea name="محل دانشگاه لیسانس" id="bacheloraddress" cols="30" rows="10"></textarea>
 
             <label for="bachelorstart" style="text-align:right; margin-top: 10px">تاریخ شروع تحصیل به میلادی</label>
-            <input type="date" name="bachelorstart" id="bachelorstart" style="text-align:right;">
+            <input type="date" name="تاریخ شروع لیسانس" id="bachelorstart" style="text-align:right;">
 
             <label for="bachelorend" style="text-align:right; margin-top: 10px">تاریخ فارغ التحصیلی به میلادی</label>
-            <input type="date" name="bachelorend" id="bachelorend" style="text-align:right;">
+            <input type="date" name="تاریخ پایان لیسانس" id="bachelorend" style="text-align:right;">
+
+            
+            <label for="" style="text-align: right;margin-top:20px;">ویدیوی راهنمایی</label>
+            <video style="margin-top: 20px;" src="<?php echo get_plugin_options('contact_plugin_guide5'); ?>" controls></video>
+
             <div style="margin-top: 10px;">
                 <button id="fifthNext">بعدی</button>
                 <button id="fifthPrev">قبلی</button>
@@ -208,12 +232,12 @@
                 <div style="display: flex; align-items:center;">
 
                     <label for="havePreUni" style="margin-right: 10px;">دارای مدرک پیش دانشگاهی هستم</label>
-                    <input type="radio" name="havePreUni" value="havePreUni">
+                    <input type="radio" name="مدرک پیش دانشگاهی" value="havePreUni">
                     <br>
                 </div>
                 <div style="display: flex; align-items:center;">
                     <label for="nothavePreUni" style="margin-right: 10px;">مدرک پیش دانشگاهی ندارم</label>
-                    <input type="radio" name="nothavePreUni" value="nothavePreUni">
+                    <input type="radio" name="مدرک پیش دانشگاهی" value="nothavePreUni">
                     <br>
                 </div>
             </div>
@@ -223,20 +247,26 @@
 
 
             <label for="schoolCountry" style="text-align:right; margin-top: 10px;">کشور محل تحصیل</label>
-            <input type="text" name="schoolCountry" id="schoolCountry">
+            <input type="text" name="محل تصیل دبیرستان" id="schoolCountry">
 
             <label for="schoolName" style="text-align:right; margin-top: 10px;">نام مدرسه</label>
-            <input type="text" name="schoolName" id="schoolName">
+            <input type="text" name="نام مدرسه دبیرستان" id="schoolName">
 
 
             <label for="eduName" style="text-align:right; margin-top: 10px;">نام شما در زمان تحصیل</label>
-            <input type="text" name="eduName" id="eduName" placeholder=" در صورت تغییر نام پر شود">
+            <input type="text" name="نام در زمان تحصیل" id="eduName" placeholder=" در صورت تغییر نام پر شود">
 
             <label for="highScstart" style="text-align:right; margin-top: 10px">تاریخ شروع تحصیل به میلادی</label>
-            <input type="date" name="highScstart" id="highScstart" style="text-align:right;">
+            <input type="date" name="تاریخ شروع دبیرستان" id="highScstart" style="text-align:right;">
 
             <label for="highScend" style="text-align:right; margin-top: 10px">تاریخ فارغ التحصیلی به میلادی</label>
-            <input type="date" name="highScend" id="highScend" style="text-align:right;">
+            <input type="date" name="تاریخ پایان دبیرستان" id="highScend" style="text-align:right;">
+
+
+            
+            <label for="" style="text-align: right;margin-top:20px;">ویدیوی راهنمایی</label>
+            <video style="margin-top: 20px;" src="<?php echo get_plugin_options('contact_plugin_guide6'); ?>" controls></video>
+
 
             <div style="margin-top: 10px;">
                 <button id="sixthNext">بعدی</button>
@@ -252,20 +282,26 @@
 
 
             <label for="preUniCountry" style="text-align:right; margin-top: 10px;">کشور محل تحصیل</label>
-            <input type="text" name="preUniCountry" id="preUniCountry">
+            <input type="text" name="کشور محل تحصیل پیش دانشگاهی" id="preUniCountry">
 
             <label for="preUniName" style="text-align:right; margin-top: 10px;">نام مدرسه</label>
-            <input type="text" name="preUniName" id="preUniName">
+            <input type="text" name="نام مدرسه پیش دانشگاهی" id="preUniName">
 
 
             <label for="preUniName" style="text-align:right; margin-top: 10px;">نام شما در زمان تحصیل</label>
-            <input type="text" name="preUniName" id="preUniName" placeholder=" در صورت تغییر نام پر شود">
+            <input type="text" name="نام در زمان تحصیل پیش دانشگاهی" id="preUniName" placeholder=" در صورت تغییر نام پر شود">
 
             <label for="preUniStart" style="text-align:right; margin-top: 10px">تاریخ شروع تحصیل به میلادی</label>
-            <input type="date" name="preUniStart" id="preUniStart" style="text-align:right;">
+            <input type="date" name="تاریخ شروع پیش دانشگاهی" id="preUniStart" style="text-align:right;">
 
             <label for="preUniEnd" style="text-align:right; margin-top: 10px">تاریخ فارغ التحصیلی به میلادی</label>
-            <input type="date" name="preUniEnd" id="preUniEnd" style="text-align:right;">
+            <input type="date" name="تاریخ پایان پیش دانشگاهی" id="preUniEnd" style="text-align:right;">
+
+
+            
+            <label for="" style="text-align: right;margin-top:20px;">ویدیوی راهنمایی</label>
+            <video style="margin-top: 20px;" src="<?php echo get_plugin_options('contact_plugin_guide7'); ?>" controls></video>
+
 
             <div style="margin-top: 10px;">
                 <button id="seventhNext">بعدی</button>
@@ -281,20 +317,25 @@
 
 
             <label for="middleScCountry" style="text-align:right; margin-top: 10px;">کشور محل تحصیل</label>
-            <input type="text" name="middleScCountry" id="middleScCountry">
+            <input type="text" name="محل تحصیل راهنمایی" id="middleScCountry">
 
             <label for="middleScSchoolName" style="text-align:right; margin-top: 10px;">نام مدرسه</label>
-            <input type="text" name="middleScSchoolName" id="middleScSchoolName">
+            <input type="text" name="نام مدرسه راهنمایی" id="middleScSchoolName">
 
 
             <label for="middleScName" style="text-align:right; margin-top: 10px;">نام شما در زمان تحصیل</label>
-            <input type="text" name="middleScName" id="middleScName" placeholder=" در صورت تغییر نام پر شود">
+            <input type="text" name="نام در زمان تحصیل راهنمایی" id="middleScName" placeholder=" در صورت تغییر نام پر شود">
 
             <label for="middleScStart" style="text-align:right; margin-top: 10px">تاریخ شروع تحصیل به میلادی</label>
-            <input type="date" name="middleScStart" id="middleScStart" style="text-align:right;">
+            <input type="date" name="تاریخ شروع مقطع راهنمایی" id="middleScStart" style="text-align:right;">
 
             <label for="middleScEnd" style="text-align:right; margin-top: 10px">تاریخ فارغ التحصیلی به میلادی</label>
-            <input type="date" name="middleScEnd" id="middleScEnd" style="text-align:right;">
+            <input type="date" name="تاریخ پایان مقطع راهنمایی" id="middleScEnd" style="text-align:right;">
+
+
+            
+            <label for="" style="text-align: right;margin-top:20px;">ویدیوی راهنمایی</label>
+            <video style="margin-top: 20px;" src="<?php echo get_plugin_options('contact_plugin_guide8'); ?>" controls></video>
 
             <div style="margin-top: 10px;">
                 <button id="eighthNext">بعدی</button>
@@ -310,12 +351,12 @@
                 <div style="display: flex; align-items:center;">
 
                     <label for="haveLang" style="margin-right: 10px;">بله</label>
-                    <input type="radio" name="haveLang" value="haveLang">
+                    <input type="radio" name="دارای مدرک زبان" value="yes">
                     <br>
                 </div>
                 <div style="display: flex; align-items:center;">
                     <label for="nothaveLang" style="margin-right: 10px;">خیر</label>
-                    <input type="radio" name="nothaveLang" value="nothaveLang">
+                    <input type="radio" name="دارای مدرک زبان" value="no">
                     <br>
                 </div>
             </div>
@@ -323,12 +364,14 @@
 
 
             <label for="langDeg" style="text-align:right;">نوع مدرک</label>
-            <input type="text" name="langDeg" id="langDeg">
+            <input type="text" name="نوع مدرک زبان" id="langDeg">
 
 
             <label for="langScore" style="text-align:right; margin-top: 10px;">نمره</label>
-            <input type="text" name="langScore" id="langScore">
-
+            <input type="text" name="نمره مدرک زبان" id="langScore">
+            
+            <label for="" style="text-align: right;margin-top:20px;">ویدیوی راهنمایی</label>
+            <video style="margin-top: 20px;" src="<?php echo get_plugin_options('contact_plugin_guide9'); ?>" controls></video>
 
                     <button type="submit" style="margin-top: 20px;">ارسال اطلاعات</button>
 
