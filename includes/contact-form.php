@@ -12,6 +12,9 @@ add_action('rest_api_init', 'create_rest_endpoint');
 
 add_action('rest_api_init', 'create_sms_endpoint');
 
+add_action('rest_api_init', 'create_support_endpoint');
+
+
 add_action('init', 'create_submission_page');
 
 // add_action('add_meta_boxes', 'create_meta_box');
@@ -123,6 +126,38 @@ function create_sms_endpoint()
         'methods' => 'POST',
         'callback' => 'get_sms_number'
     ));
+}
+
+function create_support_endpoint()
+{
+    register_rest_route('v1/contact-form-support', 'submit', array(
+        'methods' => 'POST',
+        'callback' => 'send_support_sms'
+    ));
+}
+
+function send_support_sms($data)
+{
+    $params = $data->get_params();
+    $user = $params["user"];
+    $step = $params["step"];
+
+    $reciever = get_plugin_options('contact_plugin_recipients');
+    try{
+        $username = '09124246135';
+        $password = '#31E4';
+        $api = new MelipayamakApi($username,$password);
+        $sms = $api->sms();
+        $to = $reciever;
+        $from = '50004001246135';
+        $text = "کاربری با شماره ی {$user} برای مرحله ی {$step} درخواست پشتیبانی تلفنی دارد.";
+        $response = $sms->send($to,$from,$text);
+        $json = json_decode($response);
+        // echo $json->Value; //RecId or Error Number 
+    }catch(Exception $e){
+        echo $e->getMessage();
+    }
+
 }
 function get_sms_number($data)
 {

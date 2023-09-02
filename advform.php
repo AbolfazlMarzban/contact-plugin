@@ -276,6 +276,86 @@ class advForms {
             $("#signupForm").fadeIn();
         }
     });
+    $("#support_marriageStat").click(function(event){
+        event.preventDefault();
+        $.ajax({
+                type: "POST",
+                url: "<?php echo get_rest_url(null, 'v1/contact-form-support/submit'); ?>",
+                data: {
+                    "user": phoneNum,
+                    "nonce": "<?php echo wp_create_nonce(); ?>",
+                    "step": "وضعیت تأهل"
+                },
+                complete: function(res)
+                {
+                    $("#support_marriageStat").html("درخواست شما ارسال شد");
+                },
+            })
+    });
+    $("#support_immigrationIntent").click(function(event){
+        event.preventDefault();
+        $.ajax({
+                type: "POST",
+                url: "<?php echo get_rest_url(null, 'v1/contact-form-support/submit'); ?>",
+                data: {
+                    "user": phoneNum,
+                    "nonce": "<?php echo wp_create_nonce(); ?>",
+                    "step": "اقدام قبلی برای مهاجرت آمریکا"
+                },
+                complete: function(res)
+                {
+                    $("#support_immigrationIntent").html("درخواست شما ارسال شد");
+                },
+            })
+    });
+    $("#support_address").click(function(event){
+        event.preventDefault();
+        $.ajax({
+                type: "POST",
+                url: "<?php echo get_rest_url(null, 'v1/contact-form-support/submit'); ?>",
+                data: {
+                    "user": phoneNum,
+                    "nonce": "<?php echo wp_create_nonce(); ?>",
+                    "step": "آدرس محل سکونت"
+                },
+                complete: function(res)
+                {
+                    $("#support_address").html("درخواست شما ارسال شد");
+                },
+            })
+    });
+    $("#support_employmentRec").click(function(event){
+        event.preventDefault();
+        $.ajax({
+                type: "POST",
+                url: "<?php echo get_rest_url(null, 'v1/contact-form-support/submit'); ?>",
+                data: {
+                    "user": phoneNum,
+                    "nonce": "<?php echo wp_create_nonce(); ?>",
+                    "step": "اطلاعات سابقه ی کاری"
+                },
+                complete: function(res)
+                {
+                    $("#support_employmentRec").html("درخواست شما ارسال شد");
+                },
+            })
+    });
+        $("#support_bachelorInfo").click(function(event){
+        event.preventDefault();
+        $.ajax({
+                type: "POST",
+                url: "<?php echo get_rest_url(null, 'v1/contact-form-support/submit'); ?>",
+                data: {
+                    "user": phoneNum,
+                    "nonce": "<?php echo wp_create_nonce(); ?>",
+                    "step": "اطلاعات تحصیلی لیسانس"
+                },
+                complete: function(res)
+                {
+                    $("#support_bachelorInfo").html("درخواست شما ارسال شد");
+                },
+            })
+    });
     $("#advForm").submit(function(event){
             event.preventDefault();
             var form = new FormData(event.target);

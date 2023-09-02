@@ -18,10 +18,7 @@
 
         <?php wp_nonce_field('wp_rest'); ?>
         <div id="firstStep" style="display: flex; flex-direction: column;">
-        <div>
         <label for="First Name">First Name</label>
-        <span id="supportName">درخواست پشتیبانی تلفنی</span>
-        </div>
             <input type="text" name="firstName">
 
 
@@ -63,8 +60,10 @@
                 </div>
             </div>
 
-
-            <label for="First Name" style="text-align: right; margin-top: 20px;">وضعیت تأهل</label>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
+            <button id="support_marriageStat">درخواست پشتیبانی تلفنی</button>
+            <label for="First Name" style="text-align: right;" >وضعیت تأهل</label>
+            </div>
             <div style="display: flex; align-items: end; flex-direction:column;">
                 <div style="display: flex; align-items:center;">
 
@@ -90,8 +89,14 @@
             <label for="birthDate" style="text-align: right; margin-top:20px;">تاریخ تولد میلادی</label>
             <input type="date" name="تاریخ تولد" id="birthDate" style="text-align: end;">
 
-            <label for="imigrationIntent" style="text-align: right; margin-top: 20px;">آیا تا به حال برای مهاجرت به آمریکا
+
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
+            <button id="support_immigrationIntent">درخواست پشتیبانی تلفنی</button>
+            <label for="imigrationIntent" style="text-align: right;">آیا تا به حال برای مهاجرت به آمریکا
                 از مسیر دیگری اقدام کرده اید؟</label>
+            </div>
+         
+
             <div style="display: flex; align-items: end; flex-direction:column;">
                 <div style="display: flex; align-items:center;">
 
@@ -146,8 +151,12 @@
             <label for="passport Picture" style="text-align: right; margin-top: 20px;">تصویر پاسپورت</label>
             <input type="file" name="passport"> -->
 
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
+            <button id="support_address">درخواست پشتیبانی تلفنی</button>
+            <label for="address" style="text-align: right;">آدرس محل سکونت</label>
+            </div>
 
-            <label for="address" style="text-align: right; margin-top: 20px;">آدرس محل سکونت</label>
+
             <textarea name="آدرس" id="address" cols="30" rows="10" placeholder="Example
                     No number
                     Street
@@ -173,8 +182,17 @@
 
         </div>
 
+
+
+       
+
         <div id="fourthStep" style="display: flex; flex-direction: column;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
+            <button id="support_employmentRec">درخواست پشتیبانی تلفنی</button>
             <label for="employmentRecords" style="text-align:right">اطلاعات سابقه کاری</label>
+            </div>
+
+
             <textarea name="اطلاعات سابقه کاری" id="employmentRecords" cols="30" rows="10"
                 style="text-align: right; margin-top: 10px;" placeholder="نام محل خدمت:
                             نام سوپروایزر:
@@ -204,6 +222,13 @@
             </div>
         </div>
         <div id="fifthStep" style="display: flex; flex-direction: column;">
+
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
+            <button id="support_bachelorInfo">درخواست پشتیبانی تلفنی</button>
+            <label style="text-align:right">اطلاعات تحصیلی لیسانس</label>
+            </div>
+
+
             <label for="bachelorplace" style="text-align:right; margin-top: 10px">کشور محل تحصیل لیسانس</label>
             <input type="text" name="محل تحصیل لیسانس" id="bachelorplace">
 
