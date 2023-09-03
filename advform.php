@@ -384,7 +384,7 @@ class advForms {
                 {   
                     // console.log('res', res , typeof(res))                 
                     $("#advForm").hide();
-                    $("#form_success").html(res).fadeIn();
+                    $("#form_success").html('اطلاعات شما با موفقیت ثبت شد.').fadeIn();
                 },
                 error: function()
                 {
