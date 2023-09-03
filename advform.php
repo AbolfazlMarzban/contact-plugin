@@ -248,7 +248,7 @@ class advForms {
                 complete: function(res)
                 {
                     otp = res.responseJSON.substr(res.responseJSON.length - 4);
-                    console.log('otp', otp)
+                    // console.log('otp', otp)
                     $("#signupForm").hide();
                     $("#form_errorr").hide();
                     $("#codeBox").fadeIn();
@@ -370,8 +370,8 @@ class advForms {
             }
             form.append('phoneNumber', phone);
             var sendData =Object.fromEntries(form.entries())
-            console.log('form', form)
-            console.log('sendData', sendData);
+            // console.log('form', form)
+            // console.log('sendData', sendData);
             $.ajax({
                 type: "POST",
                 url: "<?php echo get_rest_url(null, 'v1/contact-form/submit'); ?>",
@@ -382,13 +382,12 @@ class advForms {
 				processData: false,
                 success: function(res)
                 {   
-                    console.log('res', res , typeof(res))                 
+                    // console.log('res', res , typeof(res))                 
                     $("#advForm").hide();
                     $("#form_success").html(res).fadeIn();
                 },
                 error: function()
                 {
-                    console.log('poop')
                     $("#form_error").html("There was an error submitting your form!").fadeIn();
                 }
             }) 
