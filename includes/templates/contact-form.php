@@ -27,7 +27,9 @@
 
 
             <label for="passport Picture" style="text-align: left;">Passport Picture</label>
-            <input type="file" id="passport" name="passport"  style="direction: ltr; margin-top: 10px;" >
+            <input type="file" id="passport" name="passport"  style="direction: ltr; margin-top: 10px;" 
+            accept=".jpg, .jpeg, .png, .pdf, .doc, .docx"
+            >
 
             <p style="color: red; text-align:right">توجه: در صورت تغییر اسم و فامیل لطفا نام قبلی را درج فرمایید</p>
             <textarea name="نام تغییر یافته" id="changeName" cols="30" rows="10"
@@ -39,6 +41,8 @@
             <label for="" style="text-align: right;margin-top:20px;">ویدیوی راهنمایی</label>
             <video style="margin-top: 20px;" src="<?php echo get_plugin_options('contact_plugin_guide1'); ?>" controls></video>
             <?php endif; ?>
+
+            <hr style="margin-top: 20px; width: 100%;">
             <div style="margin-top: 10px;direction:ltr;">
                 <button id="firstNext">بعدی</button>
             </div>
@@ -122,6 +126,9 @@
             
             <?php endif; ?>
 
+            <hr style="margin-top: 20px; width: 100%;">
+
+
             <div style="margin-top: 10px; direction:ltr;">
                 <button id="secondNext">بعدی</button>
                 <button id="secondPrev">قبلی</button>
@@ -179,6 +186,9 @@
             <video style="margin-top: 20px;" src="<?php echo get_plugin_options('contact_plugin_guide3'); ?>" controls></video>
             <?php endif; ?>
 
+            <hr style="margin-top: 20px; width: 100%;">
+
+
             <div style="margin-top: 10px; direction:ltr;">
                 <button id="thirdNext">بعدی</button>
                 <button id="thirdPrev">قبلی</button>
@@ -209,12 +219,16 @@
 
             <label for="daneshNameh" style="text-align:right; margin-top: 10px">تصویر با کیفیت دانشنامه (اصل و
                 ترجمه)</label>
-            <input type="file" name="daneshNameh" id="daneshNameh" style="direction: ltr; margin-top: 10px;">
+            <input type="file" name="daneshNameh" id="daneshNameh" style="direction: ltr; margin-top: 10px;"
+            accept=".jpg, .jpeg, .png, .pdf, .doc, .docx"
+            >
 
 
             <label for="rizNomarat" style="text-align:right; margin-top: 10px">تصویر با کیفیت از تمام صفحات ریزنمرات (اصل و
                 ترجمه)</label>
-            <input type="file" name="rizNomarat" id="rizNomarat"  style="direction: ltr; margin-top: 10px;">
+            <input type="file" name="rizNomarat" id="rizNomarat"  style="direction: ltr; margin-top: 10px;"
+            accept=".jpg, .jpeg, .png, .pdf, .doc, .docx"
+            >
 
             <?php if(get_plugin_options('contact_plugin_guide4')): ?>
 
@@ -224,6 +238,7 @@
 
             <?php endif; ?>
 
+            <hr style="margin-top: 20px; width: 100%;">
 
             <div style="margin-top: 10px; direction:ltr;">
                 <button id="fourthNext">بعدی</button>
@@ -256,6 +271,9 @@
             <label for="" style="text-align: right;margin-top:20px;">ویدیوی راهنمایی</label>
             <video style="margin-top: 20px;" src="<?php echo get_plugin_options('contact_plugin_guide5'); ?>" controls></video>
             <?php endif; ?>
+
+            <hr style="margin-top: 20px; width: 100%;">
+
             <div style="margin-top: 10px; direction: ltr;">
                 <button id="fifthNext">بعدی</button>
                 <button id="fifthPrev">قبلی</button>
@@ -305,6 +323,10 @@
             <video style="margin-top: 20px;" src="<?php echo get_plugin_options('contact_plugin_guide6'); ?>" controls></video>
 
             <?php endif; ?>
+
+
+            <hr style="margin-top: 20px; width: 100%;">
+
             <div style="margin-top: 10px; direction:ltr;">
                 <button id="sixthNext">بعدی</button>
                 <button id="sixthPrev">قبلی</button>
@@ -341,6 +363,9 @@
             <video style="margin-top: 20px;" src="<?php echo get_plugin_options('contact_plugin_guide7'); ?>" controls></video>
 
                 <?php endif; ?>
+
+                <hr style="margin-top: 20px; width: 100%;">
+
             <div style="margin-top: 10px; direction: ltr;">
                 <button id="seventhNext">بعدی</button>
                 <button id="seventhPrev">قبلی</button>
@@ -377,6 +402,10 @@
             <video style="margin-top: 20px;" src="<?php echo get_plugin_options('contact_plugin_guide8'); ?>" controls></video>
 
             <?php endif; ?>
+
+
+            <hr style="margin-top: 20px; width: 100%;">
+
             <div style="margin-top: 10px; direction:ltr;">
                 <button id="eighthNext">بعدی</button>
                 <button id="eighthPrev">قبلی</button>
@@ -415,6 +444,10 @@
             <label for="" style="text-align: right;margin-top:20px;">ویدیوی راهنمایی</label>
             <video style="margin-top: 20px;" src="<?php echo get_plugin_options('contact_plugin_guide9'); ?>" controls></video>
             <?php endif; ?>
+
+            <hr style="margin-top: 20px; width: 100%;">
+
+
             <div style="margin-top: 10px; direction:ltr;">
             <button type="submit" style="margin-top: 20px;">ارسال اطلاعات</button>
                 <button id="ninethPrev">قبلی</button>
@@ -426,3 +459,9 @@
     </form>
 
     <?php endif; ?>
+
+    <script>
+            window.onbeforeunload = function() {
+        return "در صورت خروج یا رفرش کردن صفحه اطلاعات شما ذخیره نخواهند شد";
+    }
+    </script>

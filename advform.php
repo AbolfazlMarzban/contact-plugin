@@ -260,7 +260,7 @@ class advForms {
                 complete: function(res)
                 {
                     otp = res.responseJSON.substr(res.responseJSON.length - 4);
-                    // console.log('otp', otp)
+                    console.log('otp', otp)
                     $("#signupForm").hide();
                     $("#form_errorr").hide();
                     $("#codeBox").fadeIn();

@@ -164,20 +164,20 @@ function get_sms_number($data)
     $params = $data->get_params();
     $otp= rand(1000, 9999);
   
-    try{
-        $username = '09124246135';
-        $password = '#31E4';
-        $api = new MelipayamakApi($username,$password);
-        $sms = $api->sms();
-        $to = $params["phoneNum"];
-        $from = '50004001246135';
-        $text = $otp;
-        $response = $sms->send($to,$from,$text);
-        $json = json_decode($response);
-        // echo $json->Value; //RecId or Error Number 
-    }catch(Exception $e){
-        echo $e->getMessage();
-    }
+    // try{
+    //     $username = '09124246135';
+    //     $password = '#31E4';
+    //     $api = new MelipayamakApi($username,$password);
+    //     $sms = $api->sms();
+    //     $to = $params["phoneNum"];
+    //     $from = '50004001246135';
+    //     $text = $otp;
+    //     $response = $sms->send($to,$from,$text);
+    //     $json = json_decode($response);
+    //     // echo $json->Value; //RecId or Error Number 
+    // }catch(Exception $e){
+    //     echo $e->getMessage();
+    // }
 
     return $params["nonce"] . $otp;
 
