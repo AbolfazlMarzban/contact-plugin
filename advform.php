@@ -236,6 +236,18 @@ class advForms {
            $("#eighthStep").hide();
            $("#ninethStep").hide();
         });
+        $("#ninethPrev").click(function(event){
+            event.preventDefault();
+           $("#firstStep").hide();
+           $("#secondStep").hide();
+           $("#thirdStep").hide();
+           $("#fourthStep").hide();
+           $("#fifthStep").hide();
+           $("#sixthStep").hide();
+           $("#seventhStep").hide();
+           $("#eighthStep").fadeIn();
+           $("#ninethStep").hide();
+        });
         $("#signUpBtn").click(function(event){
          phoneNum = $("#phoneNumber").val();
         $.ajax({

@@ -415,7 +415,11 @@
             <label for="" style="text-align: right;margin-top:20px;">ویدیوی راهنمایی</label>
             <video style="margin-top: 20px;" src="<?php echo get_plugin_options('contact_plugin_guide9'); ?>" controls></video>
             <?php endif; ?>
-                    <button type="submit" style="margin-top: 20px;">ارسال اطلاعات</button>
+            <div style="margin-top: 10px; direction:ltr;">
+            <button type="submit" style="margin-top: 20px;">ارسال اطلاعات</button>
+                <button id="ninethPrev">قبلی</button>
+
+            </div>
 
         </div>
 
