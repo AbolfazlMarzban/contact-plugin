@@ -45,8 +45,10 @@ class advForms {
     var rizNomarat = null;
     $("#advForm").hide();
     $("#codeBox").hide();
-
     (function($){
+        $('#preUni').click(function(event) {
+           $("#seventhStep").hide(); 
+        });
         $("#passport").change(function(event){
             passport = event.target.files[0]
         });
@@ -166,7 +168,18 @@ class advForms {
         });
         $("#sixthNext").click(function(event){
             event.preventDefault();
-           $("#firstStep").hide();
+            if($('#preUni').is(':checked')){
+                $("#firstStep").hide();
+           $("#secondStep").hide();
+           $("#thirdStep").hide();
+           $("#fourthStep").hide();
+           $("#fifthStep").hide();
+           $("#sixthStep").hide();
+           $("#seventhStep").hide();
+           $("#eighthStep").fadeIn();
+           $("#ninethStep").hide();    
+            } else{
+                $("#firstStep").hide();
            $("#secondStep").hide();
            $("#thirdStep").hide();
            $("#fourthStep").hide();
@@ -175,6 +188,7 @@ class advForms {
            $("#seventhStep").fadeIn();
            $("#eighthStep").hide();
            $("#ninethStep").hide();
+            }
         });
         $("#sixthPrev").click(function(event){
             event.preventDefault();
@@ -226,15 +240,29 @@ class advForms {
         });
         $("#eighthPrev").click(function(event){
             event.preventDefault();
-           $("#firstStep").hide();
-           $("#secondStep").hide();
-           $("#thirdStep").hide();
-           $("#fourthStep").hide();
-           $("#fifthStep").hide();
-           $("#sixthStep").hide();
-           $("#seventhStep").fadeIn();
-           $("#eighthStep").hide();
-           $("#ninethStep").hide();
+            if($('#preUni').is(':checked')){
+                $("#firstStep").hide();
+                $("#secondStep").hide();
+                $("#thirdStep").hide();
+                $("#fourthStep").hide();
+                $("#fifthStep").hide();
+                $("#sixthStep").fadeIn();
+                $("#seventhStep").hide();
+                $("#eighthStep").hide();
+                $("#ninethStep").hide();
+            }
+            else{
+
+                $("#firstStep").hide();
+                $("#secondStep").hide();
+                $("#thirdStep").hide();
+                $("#fourthStep").hide();
+                $("#fifthStep").hide();
+                $("#sixthStep").hide();
+                $("#seventhStep").fadeIn();
+                $("#eighthStep").hide();
+                $("#ninethStep").hide();
+            }
         });
         $("#ninethPrev").click(function(event){
             event.preventDefault();
