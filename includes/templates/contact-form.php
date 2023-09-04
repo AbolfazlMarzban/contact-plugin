@@ -285,7 +285,7 @@
             <div style="display: flex; flex-direction:column;">
                 <div style="display: flex; align-items:center;">
 
-                <input type="radio" name="مدرک پیش دانشگاهی" value="havePreUni">
+                <input type="radio" name="مدرک پیش دانشگاهی" id="preUni" value="havePreUni">
                     <label for="havePreUni" style="margin-right: 10px;">دارای مدرک پیش دانشگاهی هستم</label>
                     <br>
                 </div>
@@ -335,6 +335,7 @@
 
         </div>
 
+        
         <div id="seventhStep" style="display: flex; flex-direction: column;">
 
             <label for="" style="margin-top: 10px; text-align: right;">اطلاعات پیش دانشگاهی</label>
