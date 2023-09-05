@@ -4,43 +4,50 @@
     <div id="form_errorr" style="background: red; color: white;text-align:right;"></div>
 
     <div id="signupForm" style="display: flex; flex-direction:column;">
-    <label for="phoneNumber" id="phoneLabel" style="text-align: right; margin-bottom: 10px;">شماره تلفن خود را وارد کنید</label>
-    <input type="tel" id="phoneNumber">
-    <button id="signUpBtn" type="submit" style="margin-top: 10px;">ارسال کد</button>
-</div>
+        <label for="phoneNumber" id="phoneLabel" style="text-align: right; margin-bottom: 10px;">شماره تلفن خود را وارد
+            کنید</label>
+        <input type="tel" id="phoneNumber">
+        <button id="signUpBtn" type="submit" style="margin-top: 10px;">ارسال کد</button>
+    </div>
     <div id="codeBox" style="display: flex; flex-direction:column;">
-    <label for="phoneNumber" id="phoneLabel" style="text-align: right; margin-bottom: 10px;">کد ارسال شده را وارد کنید</label>
-    <input type="tel" id="sentCode">
-    <button id="submitCode" type="submit" style="margin-top: 10px;">ثبت نام</button>
-</div>
-    <form id="advForm" class="adv-Form" style="display: flex; flex-direction: column; padding: 30px">
+        <label for="phoneNumber" id="phoneLabel" style="text-align: right; margin-bottom: 10px;">کد ارسال شده را وارد
+            کنید</label>
+        <input type="tel" id="sentCode">
+        <button id="submitCode" type="submit" style="margin-top: 10px;">ثبت نام</button>
+    </div>
+    <form id="advForm" class="adv-Form" style="display: flex; flex-direction: column;">
 
 
         <?php wp_nonce_field('wp_rest'); ?>
         <div id="firstStep" style="display: flex; flex-direction: column;">
-            <label for="First Name" style="text-align: left;">First Name</label>
-            <input type="text" name="firstName">
 
-
-            <label for="Last Name" style="text-align: left;">Last Name</label>
-            <input type="text" name="lastName">
-
-
-            <label for="passport Picture" style="text-align: left;">Passport Picture</label>
-            <input type="file" id="passport" name="passport"  style="direction: ltr; margin-top: 10px;" 
-            accept=".jpg, .jpeg, .png, .pdf, .doc, .docx"
-            >
-
-            <p style="color: red; text-align:right">توجه: در صورت تغییر اسم و فامیل لطفا نام قبلی را درج فرمایید</p>
-            <textarea name="نام تغییر یافته" id="changeName" cols="30" rows="10"
-                placeholder="در این کادر نام قبلی خود را به همراه توضیحات مربوط به این تغییر نام درج فرمایید."
-                style="text-align: right;"></textarea>
-
-            <?php if(get_plugin_options('contact_plugin_guide1')): ?>
+        <?php if (get_plugin_options('contact_plugin_guide1')): ?>
 
             <label for="" style="text-align: right;margin-top:20px;">ویدیوی راهنمایی</label>
-            <video style="margin-top: 20px;" src="<?php echo get_plugin_options('contact_plugin_guide1'); ?>" controls></video>
-            <?php endif; ?>
+            <video style="margin-top: 20px;margin-bottom:20px;"
+                src="<?php echo get_plugin_options('contact_plugin_guide1'); ?>" controls></video>
+        <?php endif; ?>
+
+
+        <label for="First Name" style="text-align: left;">First Name</label>
+        <input type="text" name="firstName">
+
+
+        <label for="Last Name" style="text-align: left;">Last Name</label>
+        <input type="text" name="lastName">
+
+
+        <label for="passport Picture" style="text-align: left;">Passport Picture</label>
+        <input type="file" id="passport" name="passport" style="direction: ltr; margin-top: 10px;"
+            accept=".jpg, .jpeg, .png, .pdf, .doc, .docx">
+
+        <p style="color: red; text-align:right">توجه: در صورت تغییر اسم و فامیل لطفا نام قبلی را درج فرمایید</p>
+        <textarea name="نام تغییر یافته" id="changeName" cols="30" rows="10"
+            placeholder="در این کادر نام قبلی خود را به همراه توضیحات مربوط به این تغییر نام درج فرمایید."
+            style="text-align: right;"></textarea>
+
+
+
 
             <hr style="margin-top: 20px; width: 100%;">
             <div style="margin-top: 10px;direction:ltr;">
@@ -51,10 +58,20 @@
 
 
         <div id="secondStep" style="display: flex; flex-direction: column;">
+
+            <?php if (get_plugin_options('contact_plugin_guide2')): ?>
+
+                <label for="" style="text-align: right;margin-top:20px;">ویدیوی راهنمایی</label>
+                <video style="margin-top: 20px;margin-bottom:20px;"
+                    src="<?php echo get_plugin_options('contact_plugin_guide2'); ?>" controls></video>
+
+            <?php endif; ?>
+
+
             <label for="First Name" style="text-align: right;">جنسیت</label>
             <div style="display: flex; flex-direction:column;">
                 <div style="display: flex; align-items:center;">
-                <input type="radio" name="جنسیت" value="مرد">
+                    <input type="radio" name="جنسیت" value="مرد">
                     <label for="مرد" style="margin-right: 10px;">مرد</label>
                     <br>
                 </div>
@@ -66,19 +83,20 @@
                 </div>
             </div>
 
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
-            <label for="First Name" style="text-align: right;" >وضعیت تأهل</label>
-            <button id="support_marriageStat">درخواست پشتیبانی تلفنی</button>
+            <div class="support_box" style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
+                <label for="First Name" style="text-align: right;">وضعیت تأهل</label>
+                <button id="support_marriageStat">درخواست پشتیبانی تلفنی</button>
             </div>
+            
             <div style="display: flex; flex-direction:column;">
                 <div style="display: flex; align-items:center;">
 
-                <input type="radio" name="وضعیت تأهل" value="single">
+                    <input type="radio" name="وضعیت تأهل" value="single">
                     <label for="single" style="margin-right: 10px;">مجرد (هیچ گاه ازدواج نکرده اید)</label>
                     <br>
                 </div>
                 <div style="display: flex; align-items:center;">
-                    <input type="radio" name="وضعیت تأهل"" value="married">
+                    <input type="radio" name="وضعیت تأهل"" value=" married">
                     <label for="married" style="margin-right: 10px;">متأهل</label>
 
                     <br>
@@ -96,18 +114,18 @@
             <input type="date" name="تاریخ تولد" id="birthDate" style="text-align: end; margin-top:10px;">
 
 
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
-            <label for="imigrationIntent" style="text-align: right;">آیا تا به حال برای مهاجرت به آمریکا
-                از مسیر دیگری اقدام کرده اید؟</label>
+            <div class="support_box" style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
+                <label for="imigrationIntent" style="text-align: right;">آیا تا به حال برای مهاجرت به آمریکا
+                    از مسیر دیگری اقدام کرده اید؟</label>
                 <button id="support_immigrationIntent">درخواست پشتیبانی تلفنی</button>
 
             </div>
-         
+
 
             <div style="display: flex; flex-direction:column;">
                 <div style="display: flex; align-items:center;">
 
-                <input type="radio" name="اقدام مهاجرت" value="بله">
+                    <input type="radio" name="اقدام مهاجرت" value="بله">
                     <label for="imigrationIntent" style="margin-right: 10px;">بله</label>
                     <br>
                 </div>
@@ -119,12 +137,7 @@
                 </div>
             </div>
 
-            <?php if(get_plugin_options('contact_plugin_guide2')): ?>
 
-            <label for="" style="text-align: right;margin-top:20px;">ویدیوی راهنمایی</label>
-            <video style="margin-top: 20px;" src="<?php echo get_plugin_options('contact_plugin_guide2'); ?>" controls></video>
-            
-            <?php endif; ?>
 
             <hr style="margin-top: 20px; width: 100%;">
 
@@ -139,11 +152,19 @@
 
 
         <div id="thirdStep" style="display: flex; flex-direction: column;">
+
+            <?php if (get_plugin_options('contact_plugin_guide3')): ?>
+
+                <label for="" style="text-align: right;margin-top:20px;">ویدیوی راهنمایی</label>
+                <video style="margin-top: 20px;margin-bottom:20px;"
+                    src="<?php echo get_plugin_options('contact_plugin_guide3'); ?>" controls></video>
+            <?php endif; ?>
+
             <div style="display: flex; flex-direction:column;">
                 <label for="">محل تولد</label>
                 <div style="display: flex; align-items:center;">
 
-                <input type="radio" name="محل تولد" value="iran">
+                    <input type="radio" name="محل تولد" value="iran">
                     <label for="محل تولد" style="margin-right: 10px;">ایران</label>
                     <br>
                 </div>
@@ -160,9 +181,9 @@
             <input type="text" name="محل زندگی در حال حاضر" id="livingPlace" style="margin-top: 10px;">
 
 
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
-            <label for="address" style="text-align: right;">آدرس محل سکونت</label>
-            <button id="support_address">درخواست پشتیبانی تلفنی</button>
+            <div class="support_box" style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
+                <label for="address" style="text-align: right;">آدرس محل سکونت</label>
+                <button id="support_address">درخواست پشتیبانی تلفنی</button>
             </div>
 
 
@@ -180,11 +201,7 @@
             <input type="tel" name="شماره تماس" id="phone" style="margin-top:10px;">
 
 
-            <?php if(get_plugin_options('contact_plugin_guide3')): ?>
 
-            <label for="" style="text-align: right;margin-top:20px;">ویدیوی راهنمایی</label>
-            <video style="margin-top: 20px;" src="<?php echo get_plugin_options('contact_plugin_guide3'); ?>" controls></video>
-            <?php endif; ?>
 
             <hr style="margin-top: 20px; width: 100%;">
 
@@ -199,12 +216,22 @@
 
 
 
-       
+
 
         <div id="fourthStep" style="display: flex; flex-direction: column;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
-            <label for="employmentRecords" style="text-align:right">اطلاعات سابقه کاری</label>
-            <button id="support_employmentRec">درخواست پشتیبانی تلفنی</button>
+
+            <?php if (get_plugin_options('contact_plugin_guide4')): ?>
+
+
+                <label for="" style="text-align: right;margin-top:20px;">ویدیوی راهنمایی</label>
+                <video style="margin-top: 20px;margin-bottom:20px;"
+                    src="<?php echo get_plugin_options('contact_plugin_guide4'); ?>" controls></video>
+
+            <?php endif; ?>
+
+            <div class="support_box" style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
+                <label for="employmentRecords" style="text-align:right">اطلاعات سابقه کاری</label>
+                <button id="support_employmentRec">درخواست پشتیبانی تلفنی</button>
             </div>
 
 
@@ -220,23 +247,15 @@
             <label for="daneshNameh" style="text-align:right; margin-top: 10px">تصویر با کیفیت دانشنامه (اصل و
                 ترجمه)</label>
             <input type="file" name="daneshNameh" id="daneshNameh" style="direction: ltr; margin-top: 10px;"
-            accept=".jpg, .jpeg, .png, .pdf, .doc, .docx"
-            >
+                accept=".jpg, .jpeg, .png, .pdf, .doc, .docx">
 
 
             <label for="rizNomarat" style="text-align:right; margin-top: 10px">تصویر با کیفیت از تمام صفحات ریزنمرات (اصل و
                 ترجمه)</label>
-            <input type="file" name="rizNomarat" id="rizNomarat"  style="direction: ltr; margin-top: 10px;"
-            accept=".jpg, .jpeg, .png, .pdf, .doc, .docx"
-            >
+            <input type="file" name="rizNomarat" id="rizNomarat" style="direction: ltr; margin-top: 10px;"
+                accept=".jpg, .jpeg, .png, .pdf, .doc, .docx">
 
-            <?php if(get_plugin_options('contact_plugin_guide4')): ?>
 
-            
-            <label for="" style="text-align: right;margin-top:20px;">ویدیوی راهنمایی</label>
-            <video style="margin-top: 20px;" src="<?php echo get_plugin_options('contact_plugin_guide4'); ?>" controls></video>
-
-            <?php endif; ?>
 
             <hr style="margin-top: 20px; width: 100%;">
 
@@ -246,11 +265,20 @@
 
             </div>
         </div>
+
+
         <div id="fifthStep" style="display: flex; flex-direction: column;">
 
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
-            <label style="text-align:right">اطلاعات تحصیلی لیسانس</label>
-            <button id="support_bachelorInfo">درخواست پشتیبانی تلفنی</button>
+            <?php if (get_plugin_options('contact_plugin_guide5')): ?>
+
+                <label for="" style="text-align: right;margin-top:20px;">ویدیوی راهنمایی</label>
+                <video style="margin-top: 20px;margin-bottom:20px;"
+                    src="<?php echo get_plugin_options('contact_plugin_guide5'); ?>" controls></video>
+            <?php endif; ?>
+
+            <div class="support_box" style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
+                <label style="text-align:right">اطلاعات تحصیلی لیسانس</label>
+                <button id="support_bachelorInfo">درخواست پشتیبانی تلفنی</button>
             </div>
 
 
@@ -258,7 +286,8 @@
             <input type="text" name="محل تحصیل لیسانس" id="bachelorplace" style="margin-top: 10px;">
 
             <label for="bacheloraddress" style="text-align:right; margin-top: 10px">آدرس محل دانشگاه</label>
-            <textarea name="محل دانشگاه لیسانس" id="bacheloraddress" cols="30" rows="10" style="margin-top: 10px;"></textarea>
+            <textarea name="محل دانشگاه لیسانس" id="bacheloraddress" cols="30" rows="10"
+                style="margin-top: 10px;"></textarea>
 
             <label for="bachelorstart" style="text-align:right; margin-top: 10px">تاریخ شروع تحصیل به میلادی</label>
             <input type="date" name="تاریخ شروع لیسانس" id="bachelorstart" style="text-align:right;margin-top:10px;">
@@ -266,11 +295,7 @@
             <label for="bachelorend" style="text-align:right; margin-top: 10px">تاریخ فارغ التحصیلی به میلادی</label>
             <input type="date" name="تاریخ پایان لیسانس" id="bachelorend" style="text-align:right;margin-top:10px;">
 
-            <?php if(get_plugin_options('contact_plugin_guide5')): ?>
 
-            <label for="" style="text-align: right;margin-top:20px;">ویدیوی راهنمایی</label>
-            <video style="margin-top: 20px;" src="<?php echo get_plugin_options('contact_plugin_guide5'); ?>" controls></video>
-            <?php endif; ?>
 
             <hr style="margin-top: 20px; width: 100%;">
 
@@ -281,11 +306,22 @@
             </div>
 
         </div>
+
+
         <div id="sixthStep" style="display: flex; flex-direction: column;">
+
+            <?php if (get_plugin_options('contact_plugin_guide6')): ?>
+
+                <label for="" style="text-align: right;margin-top:20px;">ویدیوی راهنمایی</label>
+                <video style="margin-top: 20px;margin-bottom:20px;"
+                    src="<?php echo get_plugin_options('contact_plugin_guide6'); ?>" controls></video>
+
+            <?php endif; ?>
+
             <div style="display: flex; flex-direction:column;">
                 <div style="display: flex; align-items:center;">
 
-                <input type="radio" name="مدرک پیش دانشگاهی"  value="دارم">
+                    <input type="radio" name="مدرک پیش دانشگاهی" value="دارم">
                     <label for="havePreUni" style="margin-right: 10px;">دارای مدرک پیش دانشگاهی هستم</label>
                     <br>
                 </div>
@@ -308,22 +344,14 @@
 
 
             <label for="eduName" style="text-align:right; margin-top: 10px;">نام شما در زمان تحصیل</label>
-            <input type="text" name="نام در زمان تحصیل" id="eduName" placeholder=" در صورت تغییر نام پر شود" style="margin-top: 10px;">
+            <input type="text" name="نام در زمان تحصیل" id="eduName" placeholder=" در صورت تغییر نام پر شود"
+                style="margin-top: 10px;">
 
             <label for="highScstart" style="text-align:right; margin-top: 10px">تاریخ شروع تحصیل به میلادی</label>
-            <input type="date" name="تاریخ شروع دبیرستان" id="highScstart" style="text-align:right; margin-top: 10px;"> 
+            <input type="date" name="تاریخ شروع دبیرستان" id="highScstart" style="text-align:right; margin-top: 10px;">
 
             <label for="highScend" style="text-align:right; margin-top: 10px">تاریخ فارغ التحصیلی به میلادی</label>
             <input type="date" name="تاریخ پایان دبیرستان" id="highScend" style="text-align:right; margin-top: 10px;">
-
-
-            <?php if(get_plugin_options('contact_plugin_guide6')): ?>
-
-            <label for="" style="text-align: right;margin-top:20px;">ویدیوی راهنمایی</label>
-            <video style="margin-top: 20px;" src="<?php echo get_plugin_options('contact_plugin_guide6'); ?>" controls></video>
-
-            <?php endif; ?>
-
 
             <hr style="margin-top: 20px; width: 100%;">
 
@@ -338,6 +366,14 @@
 
         <div id="seventhStep" style="display: flex; flex-direction: column;">
 
+            <?php if (get_plugin_options('contact_plugin_guide7')): ?>
+
+                <label for="" style="text-align: right;margin-top:20px;">ویدیوی راهنمایی</label>
+                <video style="margin-top: 20px;margin-bottom:20px;"
+                    src="<?php echo get_plugin_options('contact_plugin_guide7'); ?>" controls></video>
+
+            <?php endif; ?>
+
             <label for="" style="margin-top: 10px; text-align: right;">اطلاعات پیش دانشگاهی</label>
 
 
@@ -349,23 +385,19 @@
 
 
             <label for="preUniName" style="text-align:right; margin-top: 10px;">نام شما در زمان تحصیل</label>
-            <input type="text" name="نام در زمان تحصیل پیش دانشگاهی" id="preUniName" placeholder=" در صورت تغییر نام پر شود" style="margin-top: 10px;">
+            <input type="text" name="نام در زمان تحصیل پیش دانشگاهی" id="preUniName" placeholder=" در صورت تغییر نام پر شود"
+                style="margin-top: 10px;">
 
             <label for="preUniStart" style="text-align:right; margin-top: 10px">تاریخ شروع تحصیل به میلادی</label>
-            <input type="date" name="تاریخ شروع پیش دانشگاهی" id="preUniStart" style="text-align:right; margin-top:10px" >
+            <input type="date" name="تاریخ شروع پیش دانشگاهی" id="preUniStart" style="text-align:right; margin-top:10px">
 
             <label for="preUniEnd" style="text-align:right; margin-top: 10px">تاریخ فارغ التحصیلی به میلادی</label>
             <input type="date" name="تاریخ پایان پیش دانشگاهی" id="preUniEnd" style="text-align:right; margin-top:10px;">
 
 
-            <?php if(get_plugin_options('contact_plugin_guide7')): ?>
 
-            <label for="" style="text-align: right;margin-top:20px;">ویدیوی راهنمایی</label>
-            <video style="margin-top: 20px;" src="<?php echo get_plugin_options('contact_plugin_guide7'); ?>" controls></video>
 
-                <?php endif; ?>
-
-                <hr style="margin-top: 20px; width: 100%;">
+            <hr style="margin-top: 20px; width: 100%;">
 
             <div style="margin-top: 10px; direction: ltr;">
                 <button id="seventhNext">بعدی</button>
@@ -376,6 +408,15 @@
         </div>
 
         <div id="eighthStep" style="display: flex; flex-direction: column;">
+
+
+            <?php if (get_plugin_options('contact_plugin_guide8')): ?>
+
+                <label for="" style="text-align: right;margin-top:20px;">ویدیوی راهنمایی</label>
+                <video style="margin-top: 20px;margin-bottom:20px;"
+                    src="<?php echo get_plugin_options('contact_plugin_guide8'); ?>" controls></video>
+
+            <?php endif; ?>
 
             <label for="" style="margin-top: 10px; text-align: right;">اطلاعات مقطع راهنمایی</label>
 
@@ -388,21 +429,18 @@
 
 
             <label for="middleScName" style="text-align:right; margin-top: 10px;">نام شما در زمان تحصیل</label>
-            <input type="text" name="نام در زمان تحصیل راهنمایی" id="middleScName" placeholder=" در صورت تغییر نام پر شود" style="margin-top: 10px;">
+            <input type="text" name="نام در زمان تحصیل راهنمایی" id="middleScName" placeholder=" در صورت تغییر نام پر شود"
+                style="margin-top: 10px;">
 
             <label for="middleScStart" style="text-align:right; margin-top: 10px">تاریخ شروع تحصیل به میلادی</label>
-            <input type="date" name="تاریخ شروع مقطع راهنمایی" id="middleScStart" style="text-align:right; margin-top:10px;">
+            <input type="date" name="تاریخ شروع مقطع راهنمایی" id="middleScStart"
+                style="text-align:right; margin-top:10px;">
 
             <label for="middleScEnd" style="text-align:right; margin-top: 10px">تاریخ فارغ التحصیلی به میلادی</label>
             <input type="date" name="تاریخ پایان مقطع راهنمایی" id="middleScEnd" style="text-align:right; margin-top:10px;">
 
 
-            <?php if(get_plugin_options('contact_plugin_guide8')): ?>
 
-            <label for="" style="text-align: right;margin-top:20px;">ویدیوی راهنمایی</label>
-            <video style="margin-top: 20px;" src="<?php echo get_plugin_options('contact_plugin_guide8'); ?>" controls></video>
-
-            <?php endif; ?>
 
 
             <hr style="margin-top: 20px; width: 100%;">
@@ -416,11 +454,21 @@
         </div>
 
         <div id="ninethStep" style="display: flex; flex-direction: column;">
-        <label for="" style="text-align:right;">آیا مدرک زبان دارید؟</label>
-        <div style="display: flex; flex-direction:column;">
+
+
+            <?php if (get_plugin_options('contact_plugin_guide9')): ?>
+
+                <label for="" style="text-align: right;margin-top:20px;">ویدیوی راهنمایی</label>
+                <video style="margin-top: 20px;margin-bottom:20px;"
+                    src="<?php echo get_plugin_options('contact_plugin_guide9'); ?>" controls></video>
+            <?php endif; ?>
+
+
+            <label for="" style="text-align:right;">آیا مدرک زبان دارید؟</label>
+            <div style="display: flex; flex-direction:column;">
                 <div style="display: flex; align-items:center;">
 
-                <input type="radio" name="دارای مدرک زبان" value="yes">
+                    <input type="radio" name="دارای مدرک زبان" value="yes">
                     <label for="haveLang" style="margin-right: 10px;">بله</label>
                     <br>
                 </div>
@@ -439,18 +487,14 @@
 
             <label for="langScore" style="text-align:right; margin-top: 10px;">نمره</label>
             <input type="text" name="نمره مدرک زبان" id="langScore" style="margin-top: 10px;">
-            
-            <?php if(get_plugin_options('contact_plugin_guide9')): ?>
 
-            <label for="" style="text-align: right;margin-top:20px;">ویدیوی راهنمایی</label>
-            <video style="margin-top: 20px;" src="<?php echo get_plugin_options('contact_plugin_guide9'); ?>" controls></video>
-            <?php endif; ?>
+
 
             <hr style="margin-top: 20px; width: 100%;">
 
 
             <div style="margin-top: 10px; direction:ltr;">
-            <button type="submit" style="margin-top: 20px;">ارسال اطلاعات</button>
+                <button type="submit" style="margin-top: 20px;">ارسال اطلاعات</button>
                 <button id="ninethPrev">قبلی</button>
 
             </div>
@@ -459,10 +503,10 @@
 
     </form>
 
-    <?php endif; ?>
+<?php endif; ?>
 
-    <script>
-            window.onbeforeunload = function() {
+<script>
+    window.onbeforeunload = function () {
         return "در صورت خروج یا رفرش کردن صفحه اطلاعات شما ذخیره نخواهند شد";
     }
-    </script>
+</script>
