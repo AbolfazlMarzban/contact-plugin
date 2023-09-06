@@ -10,3 +10,9 @@
         margin-bottom: 10px;
     }
 }
+
+.form_btn{
+    background: linear-gradient(to bottom, #2ba8f1 0%,#0278bd 100%);
+    color: white !important;
+    border: 1px solid #2ba8f1 !important;
+}

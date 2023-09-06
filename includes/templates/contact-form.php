@@ -7,13 +7,13 @@
         <label for="phoneNumber" id="phoneLabel" style="text-align: right; margin-bottom: 10px;">شماره تلفن خود را وارد
             کنید</label>
         <input type="tel" id="phoneNumber">
-        <button id="signUpBtn" type="submit" style="margin-top: 10px;">ارسال کد</button>
+        <button class="form_btn" id="signUpBtn" type="submit" style="margin-top: 10px;">ارسال کد</button>
     </div>
     <div id="codeBox" style="display: flex; flex-direction:column;">
         <label for="phoneNumber" id="phoneLabel" style="text-align: right; margin-bottom: 10px;">کد ارسال شده را وارد
             کنید</label>
         <input type="tel" id="sentCode">
-        <button id="submitCode" type="submit" style="margin-top: 10px;">ثبت نام</button>
+        <button class="form_btn" id="submitCode" type="submit" style="margin-top: 10px;">ثبت نام</button>
     </div>
     <form id="advForm" class="adv-Form" style="display: flex; flex-direction: column;">
 
@@ -51,7 +51,7 @@
 
             <hr style="margin-top: 20px; width: 100%;">
             <div style="margin-top: 10px;direction:ltr;">
-                <button id="firstNext">بعدی</button>
+                <button class="form_btn" id="firstNext">بعدی</button>
             </div>
 
         </div>
@@ -85,7 +85,7 @@
 
             <div class="support_box" style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
                 <label for="First Name" style="text-align: right;">وضعیت تأهل</label>
-                <button id="support_marriageStat">درخواست پشتیبانی تلفنی</button>
+                <button class="form_btn" id="support_marriageStat">درخواست پشتیبانی تلفنی</button>
             </div>
             
             <div style="display: flex; flex-direction:column;">
@@ -117,7 +117,7 @@
             <div class="support_box" style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
                 <label for="imigrationIntent" style="text-align: right;">آیا تا به حال برای مهاجرت به آمریکا
                     از مسیر دیگری اقدام کرده اید؟</label>
-                <button id="support_immigrationIntent">درخواست پشتیبانی تلفنی</button>
+                <button class="form_btn" id="support_immigrationIntent">درخواست پشتیبانی تلفنی</button>
 
             </div>
 
@@ -143,8 +143,8 @@
 
 
             <div style="margin-top: 10px; direction:ltr;">
-                <button id="secondNext">بعدی</button>
-                <button id="secondPrev">قبلی</button>
+                <button class="form_btn" id="secondNext">بعدی</button>
+                <button class="form_btn" id="secondPrev">قبلی</button>
 
             </div>
 
@@ -170,7 +170,7 @@
                 </div>
                 <div style="display: flex; align-items:center;">
                     <label for="محل تولد" style="margin-right: 10px;">کشور دیگر</label>
-                    <input type="text" name="محل تولد" style="margin-right: 10px; width:inherit;">
+                    <input type="text" name="محل تولد غیر از ایران" style="margin-right: 10px; width:inherit;">
                     <br>
                 </div>
             </div>
@@ -183,7 +183,7 @@
 
             <div class="support_box" style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
                 <label for="address" style="text-align: right;">آدرس محل سکونت</label>
-                <button id="support_address">درخواست پشتیبانی تلفنی</button>
+                <button class="form_btn" id="support_address">درخواست پشتیبانی تلفنی</button>
             </div>
 
 
@@ -207,8 +207,8 @@
 
 
             <div style="margin-top: 10px; direction:ltr;">
-                <button id="thirdNext">بعدی</button>
-                <button id="thirdPrev">قبلی</button>
+                <button class="form_btn" id="thirdNext">بعدی</button>
+                <button class="form_btn" id="thirdPrev">قبلی</button>
 
             </div>
 
@@ -231,7 +231,7 @@
 
             <div class="support_box" style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
                 <label for="employmentRecords" style="text-align:right">اطلاعات سابقه کاری</label>
-                <button id="support_employmentRec">درخواست پشتیبانی تلفنی</button>
+                <button class="form_btn" id="support_employmentRec">درخواست پشتیبانی تلفنی</button>
             </div>
 
 
@@ -260,8 +260,8 @@
             <hr style="margin-top: 20px; width: 100%;">
 
             <div style="margin-top: 10px; direction:ltr;">
-                <button id="fourthNext">بعدی</button>
-                <button id="fourthPrev">قبلی</button>
+                <button class="form_btn" id="fourthNext">بعدی</button>
+                <button class="form_btn" id="fourthPrev">قبلی</button>
 
             </div>
         </div>
@@ -278,7 +278,7 @@
 
             <div class="support_box" style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
                 <label style="text-align:right">اطلاعات تحصیلی لیسانس</label>
-                <button id="support_bachelorInfo">درخواست پشتیبانی تلفنی</button>
+                <button class="form_btn" id="support_bachelorInfo">درخواست پشتیبانی تلفنی</button>
             </div>
 
 
@@ -300,8 +300,8 @@
             <hr style="margin-top: 20px; width: 100%;">
 
             <div style="margin-top: 10px; direction: ltr;">
-                <button id="fifthNext">بعدی</button>
-                <button id="fifthPrev">قبلی</button>
+                <button class="form_btn" id="fifthNext">بعدی</button>
+                <button class="form_btn" id="fifthPrev">قبلی</button>
 
             </div>
 
@@ -356,8 +356,8 @@
             <hr style="margin-top: 20px; width: 100%;">
 
             <div style="margin-top: 10px; direction:ltr;">
-                <button id="sixthNext">بعدی</button>
-                <button id="sixthPrev">قبلی</button>
+                <button class="form_btn" id="sixthNext">بعدی</button>
+                <button class="form_btn" id="sixthPrev">قبلی</button>
 
             </div>
 
@@ -400,8 +400,8 @@
             <hr style="margin-top: 20px; width: 100%;">
 
             <div style="margin-top: 10px; direction: ltr;">
-                <button id="seventhNext">بعدی</button>
-                <button id="seventhPrev">قبلی</button>
+                <button class="form_btn" id="seventhNext">بعدی</button>
+                <button class="form_btn" id="seventhPrev">قبلی</button>
 
             </div>
 
@@ -446,8 +446,8 @@
             <hr style="margin-top: 20px; width: 100%;">
 
             <div style="margin-top: 10px; direction:ltr;">
-                <button id="eighthNext">بعدی</button>
-                <button id="eighthPrev">قبلی</button>
+                <button class="form_btn" id="eighthNext">بعدی</button>
+                <button class="form_btn" id="eighthPrev">قبلی</button>
 
             </div>
 
@@ -494,8 +494,8 @@
 
 
             <div style="margin-top: 10px; direction:ltr;">
-                <button type="submit" style="margin-top: 20px;">ارسال اطلاعات</button>
-                <button id="ninethPrev">قبلی</button>
+                <button class="form_btn" type="submit" style="margin-top: 20px;">ارسال اطلاعات</button>
+                <button class="form_btn" id="ninethPrev">قبلی</button>
 
             </div>
 
