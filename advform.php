@@ -398,6 +398,8 @@ class advForms {
     });
     $("#advForm").submit(function(event){
             event.preventDefault();
+            $("#final_btn").html('در حال ارسال اطلاعات...');
+            $("#final_btn").attr("disabled", true);
             var form = new FormData(event.target);
             if(passport){
                 form.append('passport_file', passport)

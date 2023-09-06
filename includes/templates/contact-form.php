@@ -494,7 +494,7 @@
 
 
             <div style="margin-top: 10px; direction:ltr;">
-                <button class="form_btn" type="submit" style="margin-top: 20px;">ارسال اطلاعات</button>
+                <button class="form_btn" id="final_btn" type="submit" style="margin-top: 20px;">ارسال اطلاعات</button>
                 <button class="form_btn" id="ninethPrev">قبلی</button>
 
             </div>
